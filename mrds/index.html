@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mrds14.com - 每日大赛聚合与赛事解析</title>
+  <meta name="description" content="mrds14.com 汇聚每日大赛赛事预告、分类榜单、深度解析与社区讨论，为赛事关注者提供主题赛事日程、规则解读与选手表现追踪。">
+  <meta name="keywords" content="每日大赛赛程, 大赛榜单, 赛事解析, 选手数据, 主题竞赛">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f172a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%2338bdf8' stroke-width='2.2'/%3E%3Cpath d='M16 7 L16 25 M7 16 L25 16' stroke='%2338bdf8' stroke-width='2.2'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f4f7fc;
+      --surface: #ffffff;
+      --ink: #0b1a2f;
+      --ink-soft: #334155;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --brand: #0f172a;
+      --brand-soft: #1e293b;
+      --accent: #0e7490;
+      --accent-soft: #cffafe;
+      --accent-ink: #155e75;
+      --gold: #b45309;
+      --gold-soft: #fef3c7;
+      --radius-sm: 8px;
+      --radius: 14px;
+      --radius-lg: 20px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      --shadow-strong: 0 16px 40px rgba(15, 23, 42, 0.10);
+      --font: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --sticky-offset: 112px;
+      --container: 1380px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    ul, ol { list-style: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- 吸顶公告条 + 页头 ----- */
+    .sticky-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .notice-bar {
+      background: var(--brand);
+      color: #e2e8f0;
+      font-size: 0.84rem;
+      padding: 8px 0;
+      letter-spacing: 0.2px;
+    }
+
+    .notice-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .notice-badge {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.7rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .notice-bar strong { color: #f8fafc; }
+    .notice-bar .notice-link { color: #7dd3fc; font-weight: 600; white-space: nowrap; }
+
+    .site-header {
+      padding: 14px 0;
+      background: #fff;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.3px;
+      color: var(--brand);
+      white-space: nowrap;
+    }
+
+    .brand svg { flex-shrink: 0; }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .header-nav a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+
+    .header-nav a:hover,
+    .header-nav a:focus-visible {
+      background: #eef2ff;
+      color: var(--accent-ink);
+      outline: none;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn-ghost {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      transition: border 0.18s, background 0.18s;
+      white-space: nowrap;
+    }
+
+    .btn-ghost:hover,
+    .btn-ghost:focus-visible {
+      border-color: var(--accent);
+      background: #f0f9ff;
+      outline: none;
+    }
+
+    /* ----- 首屏 ----- */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2f 0%, #162b4a 55%, #1e3a5f 100%);
+      color: #f1f5f9;
+      padding: 52px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.18) 0%, transparent 55%),
+        radial-gradient(circle at 10% 80%, rgba(14, 116, 144, 0.22) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-left h1 {
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .hero-left h1 span { color: #7dd3fc; }
+
+    .hero-sub {
+      font-size: 1.02rem;
+      color: #cbd5e1;
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #0ea5e9;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 11px 26px;
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover { background: #38bdf8; transform: translateY(-1px); }
+    .btn-primary:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 2px; }
+
+    .btn-outline-light {
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 11px 24px;
+      border-radius: 999px;
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-outline-light:hover { background: rgba(255, 255, 255, 0.1); border-color: #7dd3fc; }
+    .btn-outline-light:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 2px; }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.35));
+    }
+
+    /* ----- 三栏主布局 ----- */
+    .layout {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 240px;
+      gap: 24px;
+      padding: 32px 0 48px;
+      align-items: start;
+    }
+
+    .channel-nav {
+      position: sticky;
+      top: var(--sticky-offset);
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 16px 10px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    .channel-nav h2 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+      padding: 0 8px 10px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 8px;
+    }
+
+    .channel-nav ul li a {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      transition: background 0.15s, color 0.15s;
+      line-height: 1.4;
+    }
+
+    .channel-nav ul li a:hover,
+    .channel-nav ul li a:focus-visible {
+      background: #f0f9ff;
+      color: var(--accent-ink);
+      outline: none;
+    }
+
+    .main-content { min-width: 0; }
+
+    .side-aside { min-width: 0; }
+
+    .aside-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .aside-card h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    /* ----- 板块通用 ----- */
+    .section {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      margin-bottom: 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      font-size: 1.22rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--brand);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-header h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .section-more {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .section-more:hover { text-decoration: underline; }
+
+    /* 概览段落 */
+    .overview-text {
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+    }
+    .overview-text p { margin-bottom: 12px; }
+    .overview-text p:last-child { margin-bottom: 0; }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover { box-shadow: var(--shadow-strong); transform: translateY(-2px); }
+
+    .card-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #e2e8f0;
+    }
+
+    .card-body { padding: 14px 14px 16px; flex: 1; display: flex; flex-direction: column; }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      white-space: nowrap;
+    }
+    .tag.accent { background: var(--accent-soft); color: var(--accent-ink); }
+    .tag.gold { background: var(--gold-soft); color: var(--gold); }
+
+    .card-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* 紧凑列表 */
+    .compact-list { display: flex; flex-direction: column; gap: 0; }
+
+    .compact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .compact-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .compact-item:first-child { padding-top: 0; }
+
+    .compact-num {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: #f1f5f9;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .compact-content { flex: 1; min-width: 0; }
+
+    .compact-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+      line-height: 1.4;
+    }
+
+    .compact-summary {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .compact-time {
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .category-chip {
+      display: block;
+      text-align: center;
+      padding: 14px 6px;
+      border-radius: var(--radius);
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      line-height: 1.3;
+    }
+    .category-chip:hover,
+    .category-chip:focus-visible {
+      background: #e0f2fe;
+      border-color: #7dd3fc;
+      color: var(--accent-ink);
+      outline: none;
+    }
+    .category-chip small {
+      display: block;
+      font-size: 0.66rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* 深度解析 */
+    .deep-dive h3 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--brand);
+      margin: 22px 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .deep-dive h3:first-of-type { margin-top: 0; }
+
+    .deep-dive p {
+      font-size: 0.92rem;
+      line-height: 1.72;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+    }
+
+    .deep-dive ul {
+      margin: 8px 0 14px 0;
+      padding-left: 20px;
+      list-style: disc;
+    }
+    .deep-dive ul li {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin-bottom: 4px;
+    }
+
+    .deep-dive .highlight-box {
+      background: #f0f9ff;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+    }
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-item summary {
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--ink);
+      padding: 14px 0;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.15s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::before {
+      content: '+';
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.1rem;
+      width: 20px;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::before { content: '−'; }
+    .faq-item summary:hover { color: var(--accent-ink); }
+    .faq-item summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+    .faq-answer {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding: 0 0 16px 28px;
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .comment-item {
+      background: #f8fafc;
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+    }
+
+    .comment-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7dd3fc, #0e7490);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .comment-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .comment-text {
+      font-size: 0.83rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* 资讯 */
+    .news-list { display: flex; flex-direction: column; gap: 0; }
+
+    .news-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: flex-start;
+    }
+    .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .news-item:first-child { padding-top: 0; }
+
+    .news-thumb {
+      width: 100px;
+      height: 68px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #e2e8f0;
+    }
+
+    .news-content { flex: 1; min-width: 0; }
+
+    .news-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    .news-summary {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .news-date {
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* 标签索引 */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag-cloud a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .tag-cloud a:hover,
+    .tag-cloud a:focus-visible {
+      background: #e0f2fe;
+      border-color: #7dd3fc;
+      color: var(--accent-ink);
+      outline: none;
+    }
+
+    /* 榜单 */
+    .rank-list { display: flex; flex-direction: column; gap: 0; }
+
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .rank-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .rank-item:first-child { padding-top: 0; }
+
+    .rank-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: #f1f5f9;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .rank-num.top1 { background: #fef3c7; color: #b45309; }
+    .rank-num.top2 { background: #e2e8f0; color: #475569; }
+    .rank-num.top3 { background: #ffedd5; color: #c2410c; }
+
+    .rank-title {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink);
+      flex: 1;
+      line-height: 1.35;
+    }
+
+    .rank-score {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* 时间线 */
+    .timeline { position: relative; padding-left: 18px; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 16px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -17px;
+      top: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .timeline-date {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 2px;
+    }
+
+    .timeline-text {
+      font-size: 0.84rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    /* 页脚 */
+    .site-footer {
+      background: #0b1a2f;
+      color: #94a3b8;
+      padding: 48px 0 28px;
+      margin-top: 16px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+
+    .footer-brand {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      margin-bottom: 10px;
+    }
+
+    .footer-desc {
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: #94a3b8;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #cbd5e1;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li { margin-bottom: 6px; }
+
+    .footer-col ul li a {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      transition: color 0.15s;
+    }
+    .footer-col ul li a:hover { color: #7dd3fc; }
+
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.76rem;
+      color: #64748b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      :root { --sticky-offset: 108px; }
+      .layout {
+        grid-template-columns: minmax(0, 1fr) 260px;
+        gap: 20px;
+      }
+      .channel-nav {
+        display: none;
+      }
+      .hero .container {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .hero-visual { justify-content: flex-start; }
+      .hero-visual svg { max-width: 280px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+    }
+
+    @media (max-width: 740px) {
+      :root { --sticky-offset: 100px; }
+      .container { padding: 0 16px; }
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 20px 0 32px;
+      }
+      .side-aside { margin-top: 0; }
+      .section { padding: 20px 16px 24px; border-radius: var(--radius); }
+      .header-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .header-nav { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+      .header-nav a { flex-shrink: 0; font-size: 0.8rem; padding: 5px 10px; }
+      .header-actions { display: none; }
+      .hero { padding: 32px 0 36px; }
+      .hero-left h1 { font-size: 1.8rem; }
+      .hero-sub { font-size: 0.9rem; }
+      .card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .comment-list { grid-template-columns: 1fr; }
+      .news-item { flex-direction: column; gap: 8px; }
+      .news-thumb { width: 100%; height: 140px; }
+      .notice-bar .container { gap: 6px; font-size: 0.76rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 420px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    /* 焦点可见 */
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .card:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶包裹：公告条 + 页头 -->
+  <div class="sticky-wrap">
+    <div class="notice-bar" role="status">
+      <div class="container">
+        <span class="notice-badge">更新</span>
+        <span>11月8日新增 <strong>16条</strong> 大赛速报 · 本轮主题赛「星轨重构」已开放投票</span>
+        <a class="notice-link" href="#latest-updates">查看更新 →</a>
+      </div>
+    </div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/#hero" aria-label="mrds14.com 首页">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+            <rect width="34" height="34" rx="9" fill="#0f172a"/>
+            <circle cx="17" cy="17" r="10" stroke="#38bdf8" stroke-width="2.2"/>
+            <path d="M17 7v20M7 17h20" stroke="#38bdf8" stroke-width="2.2"/>
+            <circle cx="17" cy="17" r="3" fill="#38bdf8"/>
+          </svg>
+          <span>mrds14.com</span>
+        </a>
+        <nav class="header-nav" aria-label="主题导航">
+          <a href="#daily-schedule">每日赛程</a>
+          <a href="#featured-events">精选大赛</a>
+          <a href="#category-entries">分类入口</a>
+          <a href="#deep-analysis">深度解析</a>
+          <a href="#faq">常见问答</a>
+          <a href="#community">社区讨论</a>
+          <a href="#news">赛事资讯</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn-ghost" href="#rankings">排行榜</a>
+          <a class="btn-ghost" href="#latest-updates">最新更新</a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- 首屏 -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-left">
+        <h1>mrds14.com</h1>
+        <p class="hero-sub">
+          汇聚每日大赛赛程、主题赛事预告、选手表现追踪与社区创作分享。从解谜闯关到即兴创作，覆盖 8 个赛事频道，提供当日赛果、规则变化与深度赛事解析。
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#daily-schedule">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 2v12l10-6L3 2z" fill="currentColor"/></svg>
+            查看今日赛程
+          </a>
+          <a class="btn-outline-light" href="#rankings">赛事排行榜</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="赛事数据星轨图">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#0e7490" stop-opacity="0.3"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#1e3a5f" stop-opacity="0.2"/>
+            </linearGradient>
+          </defs>
+          <circle cx="160" cy="130" r="100" stroke="url(#g1)" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.5"/>
+          <circle cx="160" cy="130" r="70" stroke="url(#g2)" stroke-width="1.5" stroke-dasharray="2 8" opacity="0.5"/>
+          <circle cx="160" cy="130" r="38" stroke="#38bdf8" stroke-width="1.2" opacity="0.4"/>
+          <circle cx="160" cy="130" r="6" fill="#38bdf8"/>
+          <circle cx="160" cy="130" r="14" fill="#38bdf8" opacity="0.15"/>
+          <circle cx="245" cy="71" r="5" fill="#7dd3fc"/>
+          <circle cx="78" cy="190" r="4" fill="#38bdf8" opacity="0.7"/>
+          <circle cx="230" cy="180" r="3" fill="#a5b4fc" opacity="0.7"/>
+          <circle cx="90" cy="78" r="3" fill="#cffafe" opacity="0.8"/>
+          <circle cx="160" cy="30" r="3" fill="#7dd3fc" opacity="0.6"/>
+          <path d="M160 30 L245 71 L230 180 L78 190 L90 78 Z" stroke="url(#g1)" stroke-width="1" fill="none" opacity="0.4"/>
+          <path d="M160 130 L245 71 M160 130 L78 190 M160 130 L230 180 M160 130 L90 78" stroke="#38bdf8" stroke-width="0.7" opacity="0.35"/>
+          <text x="160" y="252" text-anchor="middle" fill="#7dd3fc" font-size="10" font-family="monospace" opacity="0.7">SEASON 14 · NOV 2026</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三栏主布局 -->
+  <div class="container">
+    <div class="layout">
+
+      <!-- 左频道索引 -->
+      <nav class="channel-nav" aria-label="频道索引">
+        <h2>赛事频道</h2>
+        <ul>
+          <li><a href="#daily-schedule">每日赛程</a></li>
+          <li><a href="#featured-events">精选大赛</a></li>
+          <li><a href="#category-entries">分类入口</a></li>
+          <li><a href="#deep-analysis">深度解析</a></li>
+          <li><a href="#experience-guide">体验指南</a></li>
+          <li><a href="#faq">常见问答</a></li>
+          <li><a href="#community">社区讨论</a></li>
+          <li><a href="#news">赛事资讯</a></li>
+          <li><a href="#related-tags">相关推荐</a></li>
+          <li><a href="#rankings">热门榜单</a></li>
+          <li><a href="#timeline">大赛时间线</a></li>
+        </ul>
+      </nav>
+
+      <!-- 主内容区 -->
+      <main class="main-content">
+
+        <!-- 1. 主题领域概览 -->
+        <section class="section" id="overview">
+          <div class="section-header">
+            <h2>每日大赛领域概览</h2>
+          </div>
+          <div class="overview-text">
+            <p>mrds14.com 所聚合的“每日大赛”涵盖多个方向的常态化主题竞赛：解谜闯关类强调逻辑推理与限时突破，如「星轨重构」「密码回廊」；即兴创作类看重构思与表达，像「三行故事赛」「60秒剧本」；数据推演类要求策略判断，例如「资源博弈场」「概率迷局」。每个大赛频道都有独立的赛制与评审维度，选手表现、赛果与规则更新按日推进。</p>
+            <p>当前第 14 赛季进入中段，11 月 8 日共有 6 场主题赛开放投稿或进行实时比拼。解谜赛道「星轨重构」本周进入复赛阶段，8 位选手从 120 组参赛作品中晋级；创作赛道「60秒剧本」第 7 轮命题为“时间胶囊”，截止 11 月 9 日 22:00。数据推演赛道「概率迷局」调整了第 12 轮的得分加权规则，策略选择权重提升 15%。</p>
+            <p>对于关注赛事动态的读者，可以按频道查看每日赛程、选手排名与评委点评。每个大赛条目包含类型标签、赛制说明、当前轮次和社区热度，方便快速判断是否跟进。深度解析区提供规则差异对比与策略思路拆解，适合想理解评判逻辑或准备参赛的读者。</p>
+          </div>
+        </section>
+
+        <!-- 2. 精选内容推荐 -->
+        <section class="section" id="featured-events">
+          <div class="section-header">
+            <h2>精选大赛推荐</h2>
+            <a class="section-more" href="#category-entries">全部分类 →</a>
+          </div>
+          <div class="card-grid">
+            <!-- 卡片 1 -->
+            <article class="card">
+              <img class="card-thumb" src="https://picsum.photos/seed/mrds-xinggui14/400/300" alt="星轨重构大赛星图封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag accent">解谜闯关</span>
+                  <span class="tag">限时</span>
+                  <span class="tag">复赛</span>
+                </div>
+                <h3 class="card-title">星轨重构 · 第14赛季复赛</h3>
+                <p class="card-desc">选手需在 90 分钟内根据残缺星图还原三条航路，本轮加入动态干扰节点。8 强晋级赛于 11 月 8 日 20:00 开始。</p>
+                <div class="card-meta">
+                  <span>🔥 热度 9.4</span>
+                  <span>· 今日 20:00</span>
+                </div>
+              </div>
+            </article>
+            <!-- 卡片 2 -->
+            <article class="card">
+              <img class="card-thumb" src="https://picsum.photos/seed/mrds-mima08/400/300" alt="密码回廊解谜大赛封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag accent">逻辑推理</span>
+                  <span class="tag">个人赛</span>
+                </div>
+                <h3 class="card-title">密码回廊 · 第 8 轮暗号破解</h3>
+                <p class="card-desc">本轮主题为“镜像密文”，选手需从一段 600 字叙述中提取 5 组隐藏坐标。已有 43 人提交答案，最快用时 17 分 22 秒。</p>
+                <div class="card-meta">
+                  <span>⭐ 评分 8.9</span>
+                  <span>· 11月7日更新</span>
+                </div>
+              </div>
+            </article>
+            <!-- 卡片 3 -->
+            <article class="card">
+              <img class="card-thumb" src="https://picsum.photos/seed/mrds-60miao07/400/300" alt="60秒剧本创作赛封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag gold">即兴创作</span>
+                  <span class="tag">开放投稿</span>
+                </div>
+                <h3 class="card-title">60秒剧本 · 第 7 轮“时间胶囊”</h3>
+                <p class="card-desc">用 60 秒篇幅讲述一个与时间胶囊有关的故事，评审侧重转折设计与情感落点。11 月 9 日 22:00 截止。</p>
+                <div class="card-meta">
+                  <span>🔥 热度 8.7</span>
+                  <span>· 投稿 214 份</span>
+                </div>
+              </div>
+            </article>
+            <!-- 卡片 4 -->
+            <article class="card">
+              <img class="card-thumb" src="https://picsum.photos/seed/mrds-gailv12/400/300" alt="概率迷局数据推演赛封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag accent">数据推演</span>
+                  <span class="tag">策略</span>
+                </div>
+                <h3 class="card-title">概率迷局 · 第 12 轮规则调整</h3>
+                <p class="card-desc">本轮策略选择权重由 40% 提升至 55%，资源分配环节缩短 5 分钟。11 月 8 日 14:00 开启实时推演。</p>
+                <div class="card-meta">
+                  <span>⭐ 评分 9.1</span>
+                  <span>· 今日 14:00</span>
+                </div>
+              </div>
+            </article>
+            <!-- 卡片 5 -->
+            <article class="card">
+              <img class="card-thumb" src="https://picsum.photos/seed/mrds-sanhang06/400/300" alt="三行故事赛创作封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag gold">微创作</span>
+                  <span class="tag">大众投票</span>
+                </div>
+                <h3 class="card-title">三行故事赛 · 第 6 期“午夜便利店”</h3>
+                <p class="card-desc">用三行文字构建一个发生在午夜便利店的微场景，大众投票占最终成绩 30%。本期已有 178 篇作品入围。</p>
+                <div class="card-meta">
+                  <span>🔥 热度 8.2</span>
+                  <span>· 11月6日上线</span>
+                </div>
+              </div>
+            </article>
+            <!-- 卡片 6 -->
+            <article class="card">
+              <img class="card-thumb" src="https://picsum.photos/seed/mrds-ziyuan09/400/300" alt="资源博弈场策略赛封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag accent">策略对抗</span>
+                  <span class="tag">团队赛</span>
+                </div>
+                <h3 class="card-title">资源博弈场 · 第 9 轮“稀缺矿脉”</h3>
+                <p class="card-desc">三支队伍在有限矿脉中分配开采权，每轮可发起一次交换或竞标。当前积分榜前三仅差 12 分。</p>
+                <div class="card-meta">
+                  <span>⭐ 评分 8.8</span>
+                  <span>· 11月5日开赛</span>
+                </div>
+              </div>
+            </article>
+            <!-- 卡片 7 -->
+            <article class="card">
+              <img class="card-thumb" src="https://picsum.photos/seed/mrds-jingxiang11/400/300" alt="镜像叙事大赛封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag gold">叙事创作</span>
+                  <span class="tag">双视角</span>
+                </div>
+                <h3 class="card-title">镜像叙事 · 第 11 轮“双城记”</h3>
+                <p class="card-desc">要求用两个对立视角讲述同一事件，评审关注视角差异与信息落差。11 月 10 日 12:00 截稿。</p>
+                <div class="card-meta">
+                  <span>🔥 热度 7.9</span>
+                  <span>· 11月4日开启</span>
+                </div>
+              </div>
+            </article>
+            <!-- 卡片 8 -->
+            <article class="card">
+              <img class="card-thumb" src="https://picsum.photos/seed/mrds-sudoku10/400/300" alt="数独极速赛封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag accent">竞速解谜</span>
+                  <span class="tag">个人赛</span>
+                </div>
+                <h3 class="card-title">数独极速赛 · 第 10 轮“对角线变体”</h3>
+                <p class="card-desc">本轮引入对角线数独变体，标准 9×9 盘面外增加两条对角约束。完赛平均用时 6 分 48 秒。</p>
+                <div class="card-meta">
+                  <span>⭐ 评分 8.5</span>
+                  <span>· 11月3日完赛</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. 最新更新 / 动态 -->
+        <section class="section" id="latest-updates">
+          <div class="section-header">
+            <h2>最新赛事动态</h2>
+            <span class="section-more">11月8日更新</span>
+          </div>
+          <div class="compact-list">
+            <div class="compact-item">
+              <span class="compact-num">1</span>
+              <div class="compact-content">
+                <div class="compact-title">星轨重构复赛对阵公布</div>
+                <div class="compact-summary">8 强选手抽签结果已出，上半区“航路A”对阵“航路C”，今晚 20:00 开赛。</div>
+              </div>
+              <span class="compact-time">今天 09:30</span>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">2</span>
+              <div class="compact-content">
+                <div class="compact-title">概率迷局第 12 轮加权规则生效</div>
+                <div class="compact-summary">策略选择权重提升至 55%，资源分配时间缩短。参赛者需在 14:00 前完成策略提交。</div>
+              </div>
+              <span class="compact-time">今天 08:00</span>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">3</span>
+              <div class="compact-content">
+                <div class="compact-title">60秒剧本第 7 轮投稿突破 200 份</div>
+                <div class="compact-summary">“时间胶囊”命题已收到 214 份作品，初审评委将从结构完整性与反转力度两个维度筛选。</div>
+              </div>
+              <span class="compact-time">昨天 21:10</span>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">4</span>
+              <div class="compact-content">
+                <div class="compact-title">密码回廊第 8 轮答案解密</div>
+                <div class="compact-summary">本轮最快提交者“林深”用时 17 分 22 秒，5 组坐标全部正确，官方解析已发布。</div>
+              </div>
+              <span class="compact-time">昨天 18:45</span>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">5</span>
+              <div class="compact-content">
+                <div class="compact-title">资源博弈场第 9 轮积分榜更新</div>
+                <div class="compact-summary">“北辰队”以 246 分暂列第一，“远山队”238 分紧随其后，第三轮竞标将于明日进行。</div>
+              </div>
+              <span class="compact-time">11月7日</span>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">6</span>
+              <div class="compact-content">
+                <div class="compact-title">三行故事赛第 6 期大众投票开启</div>
+                <div class="compact-summary">178 篇作品进入投票环节，每位用户可投 3 票，投票截止 11 月 9 日中午 12:00。</div>
+              </div>
+              <span class="compact-time">11月7日</span>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">7</span>
+              <div class="compact-content">
+                <div class="compact-title">镜像叙事第 11 轮评审阵容公布</div>
+                <div class="compact-summary">本轮邀请 3 位叙事方向评审加入，重点关注“双视角信息差”的设计是否成立。</div>
+              </div>
+              <span class="compact-time">11月6日</span>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">8</span>
+              <div class="compact-content">
+                <div class="compact-title">数独极速赛第 10 轮成绩公示</div>
+                <div class="compact-summary">冠军“速算者”以 4 分 32 秒完成对角线变体盘面，刷新本赛季竞速纪录。</div>
+              </div>
+              <span class="compact-time">11月5日</span>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">9</span>
+              <div class="compact-content">
+                <div class="compact-title">第 15 赛季主题方向预告</div>
+                <div class="compact-summary">下赛季将新增“声音解谜”与“实时协作叙事”两个频道，报名通道预计 12 月开放。</div>
+              </div>
+              <span class="compact-time">11月3日</span>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">10</span>
+              <div class="compact-content">
+                <div class="compact-title">赛事回放功能上线</div>
+                <div class="compact-summary">解谜闯关与数据推演频道支持回看选手操作轨迹，回放保留至赛后 72 小时。</div>
+              </div>
+              <span class="compact-time">11月1日</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. 分类入口 -->
+        <section class="section" id="category-entries">
+          <div class="section-header">
+            <h2>分类入口</h2>
+          </div>
+          <div class="category-grid">
+            <a class="category-chip" href="#featured-events">解谜闯关<small>星轨重构 · 密码回廊</small></a>
+            <a class="category-chip" href="#featured-events">逻辑推理<small>数独 · 暗号破解</small></a>
+            <a class="category-chip" href="#featured-events">即兴创作<small>60秒剧本 · 三行故事</small></a>
+            <a class="category-chip" href="#featured-events">策略对抗<small>资源博弈 · 概率迷局</small></a>
+            <a class="category-chip" href="#featured-events">叙事创作<small>镜像叙事 · 双视角</small></a>
+            <a class="category-chip" href="#featured-events">竞速挑战<small>极速数独 · 限时解谜</small></a>
+            <a class="category-chip" href="#rankings">选手排行<small>积分榜 · 胜率榜</small></a>
+            <a class="category-chip" href="#timeline">赛程时间线<small>11月完整日程</small></a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析正文 -->
+        <section class="section deep-dive" id="deep-analysis">
+          <div class="section-header">
+            <h2>深度解析：大赛规则差异与策略判断</h2>
+          </div>
+          <p>每日大赛的不同频道在赛制设计上有明显区别，理解这些区别有助于判断一个赛事是否值得投入时间，也能帮助参赛者调整准备方向。以下从三个核心维度展开对比：时间压力、信息完备度与评审主观权重。</p>
+
+          <h3>一、解谜闯关类：限时突破与信息隐藏</h3>
+          <p>以「星轨重构」「密码回廊」为代表的解谜闯关赛，核心变量是时间限制与线索隐藏方式。星轨重构复赛要求 90 分钟内完成三条航路还原，线索以残缺星图与干扰节点形式给出；密码回廊则从长文本中提取坐标，信息隐藏更深但时间窗口更宽。两者的共同点是不依赖评审主观打分，结果完全由答案正确性与用时决定，适合偏好确定性强、愿意反复推演的人。</p>
+          <p>判断这类赛事的难度，可以关注三个指标：平均完赛用时、正确率分布、以及是否有变体规则（如对角线数独的额外约束）。平均用时越短、正确率越集中在少数人身上，说明该轮命题的区分度越高。</p>
+
+          <h3>二、即兴创作类：命题约束与评审维度</h3>
+          <p>「60秒剧本」「三行故事赛」「镜像叙事」属于创作方向，评审主观权重显著更高。60秒剧本明确从“结构完整性”与“反转力度”两个维度打分，三行故事赛则将 30% 权重交给大众投票。这类比赛的关键差异在于命题约束的松紧：三行故事赛限制极严（三行文字），60秒剧本留有 60 秒的叙事空间，镜像叙事则要求双视角结构。</p>
+          <p>如果准备参赛，先看该轮评审是否公开评分细则。公开细则的轮次更容易针对性调整，例如镜像叙事第 11 轮明确关注“双视角信息差”，那么单纯切换人称而不制造信息落差的写法得分通常不高。</p>
+
+          <h3>三、策略对抗类：实时决策与权重变化</h3>
+          <p>「资源博弈场」「概率迷局」属于策略对抗方向，特点是规则可能在轮次间调整。概率迷局第 12 轮将策略选择权重从 40% 提升到 55%，资源分配时间缩短 5 分钟，这意味着依赖资源堆叠的保守策略收益下降，更早做出策略判断的选手会占据优势。资源博弈场则引入团队竞标机制，三支队伍在有限矿脉中分配开采权，积分差距容易在单轮竞标中逆转。</p>
+          <div class="highlight-box">
+            <strong>判断策略赛轮次重要性的方法：</strong> 看权重调整公告与当前积分差。权重调整幅度越大，历史策略的参考价值越低；积分差越小，单轮决策的边际影响越大。
+          </div>
+
+          <h3>四、跨频道的选择顺序</h3>
+          <p>如果第一次接触这个大赛体系，建议按“解谜闯关 → 即兴创作 → 策略对抗”的顺序浏览。解谜类规则透明、结果直观，适合快速建立对赛制节奏的认知；创作类可以观察评审如何拆解作品，理解主观评分的逻辑；策略类则需要一定的积分与轮次背景，放到后面看更容易看懂决策点。每个频道的最新轮次与赛果都在对应板块更新，可以按日期追溯。</p>
+        </section>
+
+        <!-- 6. 体验指南 / 消费路径 -->
+        <section class="section" id="experience-guide">
+          <div class="section-header">
+            <h2>体验指南：赛事内容消费路径</h2>
+          </div>
+          <div class="overview-text">
+            <p>面对每日更新的赛事内容，如何安排浏览顺序更有效率？这里提供一条基于内容消费习惯的路径建议，不涉及任何页面操作，只讨论先看什么、怎么判断。</p>
+            <p><strong>第一步：先看当日最紧凑的赛果。</strong> 解谜闯关与竞速类的赛果通常几分钟内就能读完——谁赢了、用时多少、有没有刷新纪录。这类信息确定性高，适合快速判断当天赛事的热度。</p>
+            <p><strong>第二步：读一篇创作类评审点评。</strong> 创作赛的评审意见往往包含对作品结构的具体拆解，比单纯看排名更有信息量。如果时间有限，优先看评审公开了评分维度的轮次，例如 60秒剧本的结构与反转两个维度。</p>
+            <p><strong>第三步：检查策略赛的规则变动。</strong> 策略对抗类每轮可能有权重调整或机制增减，规则变动会直接影响选手表现，也是理解积分变化的关键。概率迷局第 12 轮的权重调整就是一个典型例子。</p>
+            <p><strong>判断一个赛事是否值得持续跟进：</strong> 看它的规则是否在轮次间有实质变化。规则稳定的赛事更适合追踪选手成长，规则频繁调整的赛事则需要每轮重新理解，适合喜欢分析变化的读者。两种类型没有优劣，取决于你想获得什么样的阅读体验。</p>
+          </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="section" id="faq">
+          <div class="section-header">
+            <h2>常见问答</h2>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>解谜闯关类大赛一般多久更新一轮？</summary>
+              <div class="faq-answer">解谜闯关频道的轮次节奏通常为 5—7 天一轮。以星轨重构为例，第 14 赛季复赛安排在 11 月 8 日，下一轮晋级赛预计 11 月 13 日前后。密码回廊的轮次稍快，约 4 天一轮，每轮答案公布后会留 1 天解析期。</div>
+            </details>
+            <details class="faq-item">
+              <summary>60秒剧本和镜像叙事有什么区别？</summary>
+              <div class="faq-answer">两者都是创作方向，但约束不同。60秒剧本限制在 60 秒的叙事篇幅内完成一个完整故事，评审侧重结构与反转；镜像叙事要求用两个对立视角讲述同一事件，评审关注视角差异带来的信息落差。前者考验压缩与转折，后者考验结构对称性。</div>
+            </details>
+            <details class="faq-item">
+              <summary>第一次接触这个大赛体系，从哪个赛事开始看比较好？</summary>
+              <div class="faq-answer">建议从密码回廊或数独极速赛开始。这两类赛事规则透明、结果由答案决定，不需要理解评审偏好，能快速建立对赛制节奏的认知。看完一两轮后再转向创作类或策略类，会更容易看懂评分逻辑和积分变化。</div>
+            </details>
+            <details class="faq-item">
+              <summary>策略对抗类的评判标准通常是什么？</summary>
+              <div class="faq-answer">资源博弈场和概率迷局主要看最终积分与决策质量。积分由资源收益、竞标结果和策略选择共同决定，不同轮次权重可能调整。例如概率迷局第 12 轮将策略选择权重提升至 55%，说明该轮更看重决策判断而非资源积累。</div>
+            </details>
+            <details class="faq-item">
+              <summary>三行故事赛的大众投票占多少比重？</summary>
+              <div class="faq-answer">三行故事赛第 6 期的大众投票占最终成绩的 30%，其余 70% 由评审打分决定。投票环节每位用户可投 3 票，投票截止 11 月 9 日中午 12:00。评审分侧重场景构建与文字效率，投票分则反映大众对故事的直接感受。</div>
+            </details>
+            <details class="faq-item">
+              <summary>赛事回放保留多久？可以看哪些频道？</summary>
+              <div class="faq-answer">目前解谜闯关与数据推演频道支持回放，保留至赛后 72 小时。回放内容包括选手操作轨迹与关键决策时间点，适合复盘策略或研究解题路径。创作类频道暂不提供操作回放，但会公布评审点评文本。</div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 8. 用户评论 -->
+        <section class="section" id="community">
+          <div class="section-header">
+            <h2>社区讨论</h2>
+          </div>
+          <div class="comment-list">
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">林</span>
+                <span class="comment-name">林深见鹿</span>
+              </div>
+              <p class="comment-text">星轨重构这轮复赛的干扰节点设计得挺巧，表面看只有三条航路，实际上有两条是幌子。我花了 40 分钟才排除掉错误路径。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">陈</span>
+                <span class="comment-name">陈默</span>
+              </div>
+              <p class="comment-text">概率迷局这轮权重调整之后，之前攒资源的打法明显不灵了。第 12 轮策略选择权重到 55%，等于逼着选手提前做判断。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">苏</span>
+                <span class="comment-name">苏晚</span>
+              </div>
+              <p class="comment-text">60秒剧本第 7 轮“时间胶囊”我投了，但感觉命题范围有点宽，写亲情、写科幻、写悬疑的都有，评审标准会不会太分散？</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">周</span>
+                <span class="comment-name">周游</span>
+              </div>
+              <p class="comment-text">密码回廊第 8 轮最快 17 分 22 秒有点离谱，我光读文本就花了 10 分钟。不过坐标提取的思路确实有参考价值。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">何</span>
+                <span class="comment-name">何以舟</span>
+              </div>
+              <p class="comment-text">资源博弈场北辰队和远山队只差 8 分，明天第三轮竞标很关键。前两轮北辰队的交换策略太保守了，希望第三轮能激进一点。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">杨</span>
+                <span class="comment-name">杨不悔</span>
+              </div>
+              <p class="comment-text">三行故事赛第 6 期投了三篇，都是写午夜便利店的。有一篇写店员和过期饭团对话的，三行就把孤独感写出来了，很厉害。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">许</span>
+                <span class="comment-name">许一诺</span>
+              </div>
+              <p class="comment-text">镜像叙事要求双视角，我总觉得很多参赛者只是把第一人称换成第三人称，信息差根本没做出来。评审关注点写得挺清楚的，但做到的人不多。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">郑</span>
+                <span class="comment-name">郑北</span>
+              </div>
+              <p class="comment-text">数独极速赛的对角线变体第一次玩，4 分 32 秒的冠军太强了。我试了一下花了快 9 分钟，中间还卡了两次。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">吴</span>
+                <span class="comment-name">吴念</span>
+              </div>
+              <p class="comment-text">整体节奏挺好，每天更新的赛果和规则变动看一遍大概十几分钟。创作类的评审点评值得细看，比单纯看排名有用。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">唐</span>
+                <span class="comment-name">唐糖</span>
+              </div>
+              <p class="comment-text">第 15 赛季新增声音解谜和实时协作叙事，声音解谜不知道具体怎么比，是听音辨位还是音频创作？等报名通道开了看看细则。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">孙</span>
+                <span class="comment-name">孙远</span>
+              </div>
+              <p class="comment-text">赛事回放功能上线之后复盘方便多了。星轨重构的操作轨迹能一步步回看，看高手怎么排除干扰节点，比只看答案有收获。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <span class="comment-avatar">李</span>
+                <span class="comment-name">李叙</span>
+              </div>
+              <p class="comment-text">概率迷局规则调整有点频繁，第 10 轮改过一次资源分配，第 12 轮又改策略权重。追起来有点累，但确实每轮都有新东西可看。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="section" id="news">
+          <div class="section-header">
+            <h2>相关赛事资讯</h2>
+          </div>
+          <div class="news-list">
+            <article class="news-item">
+              <img class="news-thumb" src="https://picsum.photos/seed/mrds-news-star14/600/400" alt="星轨重构复赛现场星图" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <h3 class="news-title">星轨重构 8 强对阵出炉，今晚 20:00 开启复赛</h3>
+                <p class="news-summary">抽签结果已公布，上半区航路A对阵航路C，下半区航路B对阵航路D。本轮引入动态干扰节点。</p>
+              </div>
+              <span class="news-date">2026-11-08</span>
+            </article>
+            <article class="news-item">
+              <img class="news-thumb" src="https://picsum.photos/seed/mrds-news-gailv12/600/400" alt="概率迷局策略面板界面" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <h3 class="news-title">概率迷局第 12 轮策略权重提升至 55%</h3>
+                <p class="news-summary">资源分配时间缩短 5 分钟，策略选择权重从 40% 升至 55%。本轮实时推演于 14:00 开启。</p>
+              </div>
+              <span class="news-date">2026-11-08</span>
+            </article>
+            <article class="news-item">
+              <img class="news-thumb" src="https://picsum.photos/seed/mrds-news-60miao07/600/400" alt="60秒剧本投稿作品封面" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <h3 class="news-title">60秒剧本第 7 轮投稿量达 214 份，初审启动</h3>
+                <p class="news-summary">“时间胶囊”命题投稿已于 11 月 7 日截止，初审从结构完整性与反转力度两个维度筛选。</p>
+              </div>
+              <span class="news-date">2026-11-07</span>
+            </article>
+            <article class="news-item">
+              <img class="news-thumb" src="https://picsum.photos/seed/mrds-news-mima08/600/400" alt="密码回廊密文线索图" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <h3 class="news-title">密码回廊第 8 轮解析发布，5 组坐标全公开</h3>
+                <p class="news-summary">最快提交者用时 17 分 22 秒，官方解析逐条拆解了文本中的隐藏线索与提取路径。</p>
+              </div>
+              <span class="news-date">2026-11-07</span>
+            </article>
+            <article class="news-item">
+              <img class="news-thumb" src="https://picsum.photos/seed/mrds-news-ziyuan09/600/400" alt="资源博弈场竞标积分板" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <h3 class="news-title">资源博弈场第 9 轮积分榜：北辰队 246 分领跑</h3>
+                <p class="news-summary">远山队 238 分紧随其后，第三轮竞标将于明日进行。前两轮交换策略成为关键变量。</p>
+              </div>
+              <span class="news-date">2026-11-07</span>
+            </article>
+            <article class="news-item">
+              <img class="news-thumb" src="https://picsum.photos/seed/mrds-news-season15/600/400" alt="第15赛季新频道预告图" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <h3 class="news-title">第 15 赛季新增声音解谜与实时协作叙事频道</h3>
+                <p class="news-summary">报名通道预计 12 月开放，声音解谜侧重音频线索识别，实时协作叙事要求双人同步创作。</p>
+              </div>
+              <span class="news-date">2026-11-03</span>
+            </article>
+          </div>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="section" id="related-tags">
+          <div class="section-header">
+            <h2>相关推荐</h2>
+          </div>
+          <div class="tag-cloud">
+            <a href="#featured-events">星轨重构复赛解析</a>
+            <a href="#featured-events">密码回廊隐藏坐标</a>
+            <a href="#featured-events">60秒剧本反转技巧</a>
+            <a href="#featured-events">概率迷局策略权重</a>
+            <a href="#deep-analysis">解谜赛计时规则对比</a>
+            <a href="#deep-analysis">双视角叙事信息差</a>
+            <a href="#rankings">选手积分榜变化</a>
+            <a href="#timeline">11月赛程日历</a>
+            <a href="#experience-guide">创作赛评审维度</a>
+            <a href="#featured-events">数独对角线变体</a>
+          </div>
+        </section>
+
+        <!-- 11. 补充板块：热门榜单 -->
+        <section class="section" id="rankings">
+          <div class="section-header">
+            <h2>热门榜单</h2>
+            <span class="section-more">截至 11月8日 10:00</span>
+          </div>
+          <div class="rank-list">
+            <div class="rank-item">
+              <span class="rank-num top1">1</span>
+              <span class="rank-title">星轨重构 · 第14赛季复赛</span>
+              <span class="rank-score">9.4</span>
+            </div>
+            <div class="rank-item">
+              <span class="rank-num top2">2</span>
+              <span class="rank-title">概率迷局 · 第12轮规则调整</span>
+              <span class="rank-score">9.1</span>
+            </div>
+            <div class="rank-item">
+              <span class="rank-num top3">3</span>
+              <span class="rank-title">密码回廊 · 第8轮暗号破解</span>
+              <span class="rank-score">8.9</span>
+            </div>
+            <div class="rank-item">
+              <span class="rank-num">4</span>
+              <span class="rank-title">资源博弈场 · 第9轮稀缺矿脉</span>
+              <span class="rank-score">8.8</span>
+            </div>
+            <div class="rank-item">
+              <span class="rank-num">5</span>
+              <span class="rank-title">60秒剧本 · 第7轮时间胶囊</span>
+              <span class="rank-score">8.7</span>
+            </div>
+            <div class="rank-item">
+              <span class="rank-num">6</span>
+              <span class="rank-title">数独极速赛 · 第10轮对角线变体</span>
+              <span class="rank-score">8.5</span>
+            </div>
+            <div class="rank-item">
+              <span class="rank-num">7</span>
+              <span class="rank-title">三行故事赛 · 第6期午夜便利店</span>
+              <span class="rank-score">8.2</span>
+            </div>
+            <div class="rank-item">
+              <span class="rank-num">8</span>
+              <span class="rank-title">镜像叙事 · 第11轮双城记</span>
+              <span class="rank-score">7.9</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 12. 补充板块：大赛时间线 -->
+        <section class="section" id="timeline">
+          <div class="section-header">
+            <h2>大赛时间线</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">11月8日</div>
+              <div class="timeline-text">星轨重构复赛 20:00 开赛 · 概率迷局第12轮 14:00 推演</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">11月9日</div>
+              <div class="timeline-text">60秒剧本第7轮截稿 22:00 · 三行故事赛大众投票截止 12:00</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">11月10日</div>
+              <div class="timeline-text">镜像叙事第11轮截稿 12:00 · 资源博弈场第三轮竞标</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">11月13日</div>
+              <div class="timeline-text">星轨重构晋级赛 · 密码回廊第9轮开启</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">11月16日</div>
+              <div class="timeline-text">第14赛季中期积分榜结算 · 各频道轮次休整</div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- 右侧辅助栏 -->
+      <aside class="side-aside">
+        <div class="aside-card">
+          <h3>今日赛程</h3>
+          <div class="compact-list">
+            <div class="compact-item">
+              <span class="compact-num">14:00</span>
+              <div class="compact-content">
+                <div class="compact-title">概率迷局第12轮推演</div>
+                <div class="compact-summary">策略权重 55%</div>
+              </div>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">20:00</span>
+              <div class="compact-content">
+                <div class="compact-title">星轨重构复赛</div>
+                <div class="compact-summary">8 强对阵</div>
+              </div>
+            </div>
+            <div class="compact-item">
+              <span class="compact-num">22:00</span>
+              <div class="compact-content">
+                <div class="compact-title">60秒剧本投稿截止</div>
+                <div class="compact-summary">第7轮时间胶囊</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="aside-card">
+          <h3>热门标签</h3>
+          <div class="tag-cloud" style="gap:6px;">
+            <a href="#featured-events" style="font-size:0.74rem;padding:4px 10px;">星轨重构</a>
+            <a href="#featured-events" style="font-size:0.74rem;padding:4px 10px;">概率迷局</a>
+            <a href="#featured-events" style="font-size:0.74rem;padding:4px 10px;">60秒剧本</a>
+            <a href="#featured-events" style="font-size:0.74rem;padding:4px 10px;">密码回廊</a>
+            <a href="#featured-events" style="font-size:0.74rem;padding:4px 10px;">资源博弈场</a>
+            <a href="#featured-events" style="font-size:0.74rem;padding:4px 10px;">镜像叙事</a>
+          </div>
+        </div>
+
+        <div class="aside-card">
+          <h3>最新评论</h3>
+          <div class="compact-list">
+            <div class="compact-item">
+              <div class="compact-content">
+                <div class="compact-title" style="font-size:0.82rem;">林深见鹿</div>
+                <div class="compact-summary">星轨重构干扰节点设计巧妙</div>
+              </div>
+            </div>
+            <div class="compact-item">
+              <div class="compact-content">
+                <div class="compact-title" style="font-size:0.82rem;">陈默</div>
+                <div class="compact-summary">概率迷局权重调整影响很大</div>
+              </div>
+            </div>
+            <div class="compact-item">
+              <div class="compact-content">
+                <div class="compact-title" style="font-size:0.82rem;">苏晚</div>
+                <div class="compact-summary">时间胶囊命题范围偏宽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">mrds14.com</div>
+          <p class="footer-desc">每日大赛内容聚合与赛事解析，覆盖解谜闯关、即兴创作、策略对抗等 8 个赛事频道，提供赛程、赛果与规则变动追踪。</p>
+        </div>
+        <div class="footer-col">
+          <h4>赛事频道</h4>
+          <ul>
+            <li><a href="#featured-events">解谜闯关</a></li>
+            <li><a href="#featured-events">即兴创作</a></li>
+            <li><a href="#featured-events">策略对抗</a></li>
+            <li><a href="#featured-events">叙事创作</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>内容入口</h4>
+          <ul>
+            <li><a href="#daily-schedule">每日赛程</a></li>
+            <li><a href="#rankings">热门榜单</a></li>
+            <li><a href="#timeline">大赛时间线</a></li>
+            <li><a href="#community">社区讨论</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>帮助与解析</h4>
+          <ul>
+            <li><a href="#deep-analysis">深度解析</a></li>
+            <li><a href="#experience-guide">体验指南</a></li>
+            <li><a href="#faq">常见问答</a></li>
+            <li><a href="#news">赛事资讯</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>部分内容为示例数据，仅用于展示页面结构</span>
+        <span>© 2026 mrds14.com · 赛事内容聚合</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 平滑锚点偏移（配合吸顶条高度），确保锚点滚动不遮挡正文
+    (function () {
+      var stickyOffset = 112;
+      function updateOffset() {
+        var wrap = document.querySelector('.sticky-wrap');
+        if (wrap) {
+          stickyOffset = wrap.offsetHeight;
+          document.documentElement.style.setProperty('--sticky-offset', stickyOffset + 'px');
+        }
+      }
+      updateOffset();
+      window.addEventListener('resize', updateOffset);
+
+      document.querySelectorAll('a[href^="/#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var hash = this.getAttribute('href');
+          if (hash && hash.startsWith('/#')) {
+            var id = hash.slice(2);
+            var target = document.getElementById(id);
+            if (target) {
+              e.preventDefault();
+              var top = target.getBoundingClientRect().top + window.pageYOffset - stickyOffset + 1;
+              window.scrollTo({ top: top, behavior: 'smooth' });
+              history.pushState(null, '', '#' + id);
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+              </html>
