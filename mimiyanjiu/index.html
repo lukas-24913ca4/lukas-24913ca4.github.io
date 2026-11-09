@@ -1,0 +1,1354 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秘密研究所最新地址发布页 - 入口导航与线路更新</title>
+<meta name="description" content="秘密研究所最新地址发布页汇总可用入口线路、镜像地址与访问状态，提供线路测速记录、更新公告、常见访问问题解答与备用通道说明，适合需要稳定找到最新入口的访客查阅。">
+<meta name="keywords" content="入口线路更新,镜像地址,访问状态,备用通道,线路测速">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1b2a'/%3E%3Ccircle cx='32' cy='30' r='13' fill='none' stroke='%2338e5c8' stroke-width='4'/%3E%3Cpath d='M32 17v-7M32 50v7M19 30h-7M52 30h7' stroke='%2338e5c8' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='30' r='4' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0b121c;
+  --bg-soft:#101a26;
+  --panel:#14202e;
+  --panel-2:#182635;
+  --line:#243446;
+  --line-soft:#1c2a3a;
+  --text:#e6eef7;
+  --text-2:#a9bccf;
+  --text-3:#7d92a8;
+  --accent:#38e5c8;
+  --accent-2:#ffd166;
+  --accent-3:#5aa9ff;
+  --danger:#ff7a7a;
+  --radius:14px;
+  --radius-sm:9px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --sticky-h:104px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:radial-gradient(1200px 600px at 80% -10%,rgba(56,229,200,.10),transparent 60%),var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  font-size:15px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;}
+p{margin:0 0 12px;}
+ul,ol{margin:0;padding-left:20px;}
+button{font-family:inherit;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+section[id],div[id]{scroll-margin-top:var(--sticky-h);}
+
+/* ===== 吸顶公告条 + 页头 ===== */
+.sticky-wrap{
+  position:sticky;top:0;z-index:60;
+}
+.notice-bar{
+  background:linear-gradient(90deg,#123b39,#0d2a33 55%,#1a2f3f);
+  border-bottom:1px solid rgba(56,229,200,.28);
+  font-size:13px;
+  color:#cff7ef;
+  padding:7px 0;
+}
+.notice-bar .inner{
+  max-width:1320px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.notice-tag{
+  flex:none;
+  background:var(--accent);color:#06231f;
+  font-weight:700;font-size:11px;letter-spacing:.06em;
+  padding:2px 8px;border-radius:99px;
+}
+.notice-bar .marquee-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.notice-bar .marquee-text b{color:var(--accent-2);font-weight:600;}
+
+.site-header{
+  background:rgba(11,18,28,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1320px;margin:0 auto;padding:12px 20px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:11px;flex:none;}
+.brand-mark{width:40px;height:40px;flex:none;}
+.brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.brand-name{font-size:17px;font-weight:800;letter-spacing:.01em;}
+.brand-sub{font-size:11px;color:var(--text-3);letter-spacing:.14em;}
+.header-nav{
+  display:flex;gap:4px;flex-wrap:wrap;flex:1 1 auto;
+}
+.header-nav a{
+  font-size:13.5px;color:var(--text-2);
+  padding:6px 10px;border-radius:8px;
+  transition:.18s;
+}
+.header-nav a:hover{background:var(--panel-2);color:var(--accent);}
+.header-search{
+  display:flex;align-items:center;gap:8px;flex:none;
+}
+.header-search input{
+  width:170px;background:var(--panel);border:1px solid var(--line);
+  border-radius:8px;color:var(--text);font-size:13px;padding:7px 10px;
+}
+.header-search input::placeholder{color:var(--text-3);}
+.header-search button{
+  background:var(--accent);color:#06231f;border:none;font-weight:700;
+  font-size:13px;padding:7px 14px;border-radius:8px;cursor:pointer;
+}
+.header-search button:hover{filter:brightness(1.08);}
+
+/* ===== 首屏 ===== */
+.hero{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    linear-gradient(180deg,rgba(20,32,46,.0),rgba(11,18,28,.6)),
+    radial-gradient(800px 360px at 15% 10%,rgba(90,169,255,.14),transparent 65%),
+    radial-gradient(700px 340px at 90% 90%,rgba(56,229,200,.12),transparent 60%);
+}
+.hero-inner{
+  max-width:1320px;margin:0 auto;padding:44px 20px 48px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:.16em;color:var(--accent);
+  border:1px solid rgba(56,229,200,.35);
+  padding:4px 12px;border-radius:99px;margin-bottom:16px;
+}
+.hero-kicker i{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;}
+.hero h1{
+  font-size:clamp(26px,3.6vw,42px);
+  letter-spacing:.01em;
+  margin-bottom:16px;
+}
+.hero h1 span{color:var(--accent);}
+.hero-lead{
+  color:var(--text-2);max-width:560px;font-size:15px;margin-bottom:22px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:700;padding:10px 20px;border-radius:10px;
+  border:1px solid transparent;cursor:pointer;transition:.18s;
+}
+.btn-primary{background:var(--accent);color:#06231f;}
+.btn-primary:hover{filter:brightness(1.1);}
+.btn-ghost{border-color:var(--line);color:var(--text);background:var(--panel);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+.hero-stats{
+  display:flex;gap:26px;flex-wrap:wrap;
+  padding-top:20px;border-top:1px solid var(--line-soft);
+}
+.hero-stats div{line-height:1.35;}
+.hero-stats strong{display:block;font-size:20px;color:var(--accent-2);font-weight:800;}
+.hero-stats span{font-size:12px;color:var(--text-3);}
+.hero-visual{position:relative;}
+.hero-visual svg{width:100%;height:auto;filter:drop-shadow(0 12px 30px rgba(0,0,0,.45));}
+
+/* ===== 布局：三栏门户 ===== */
+.layout{
+  max-width:1320px;margin:0 auto;padding:34px 20px 10px;
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr) 270px;
+  gap:28px;
+  align-items:start;
+}
+.col-left,.col-right{position:sticky;top:calc(var(--sticky-h) + 12px);}
+.col-left{display:flex;flex-direction:column;gap:16px;}
+.col-right{display:flex;flex-direction:column;gap:16px;}
+
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;
+}
+.panel-title{
+  font-size:13px;color:var(--text-3);letter-spacing:.1em;
+  margin-bottom:12px;font-weight:700;
+}
+.channel-list{display:flex;flex-direction:column;gap:2px;}
+.channel-list a{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  font-size:13.5px;color:var(--text-2);
+  padding:7px 9px;border-radius:8px;transition:.16s;
+}
+.channel-list a:hover{background:var(--panel-2);color:var(--accent);}
+.channel-list a .count{font-size:11px;color:var(--text-3);}
+.channel-list a:hover .count{color:var(--accent);}
+
+.side-nav-links{display:flex;flex-direction:column;gap:6px;}
+.side-nav-links a{
+  font-size:13px;color:var(--text-2);padding:5px 0;
+  border-bottom:1px dashed var(--line-soft);
+}
+.side-nav-links a:last-child{border-bottom:none;}
+.side-nav-links a:hover{color:var(--accent);}
+
+.main-col{min-width:0;display:flex;flex-direction:column;gap:30px;}
+
+/* 板块通用 */
+.block{scroll-margin-top:var(--sticky-h);}
+.block-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+  margin-bottom:16px;flex-wrap:wrap;
+}
+.block-head h2{
+  font-size:20px;position:relative;padding-left:14px;
+}
+.block-head h2::before{
+  content:"";position:absolute;left:0;top:4px;bottom:4px;width:4px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-3));
+  border-radius:3px;
+}
+.block-head .sub{font-size:12.5px;color:var(--text-3);}
+.block-lead{color:var(--text-2);font-size:14px;margin-bottom:16px;max-width:760px;}
+
+/* 概览 */
+.overview{
+  background:linear-gradient(180deg,var(--panel),var(--bg-soft));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px;
+}
+.overview p{color:var(--text-2);font-size:14.5px;}
+.overview p:last-child{margin-bottom:0;}
+.overview strong{color:var(--text);}
+
+/* 精选卡片 */
+.card-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;
+}
+.card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;transition:.2s;
+}
+.card:hover{border-color:rgba(56,229,200,.5);transform:translateY(-3px);box-shadow:var(--shadow);}
+.card-cover{position:relative;aspect-ratio:4/3;background:var(--panel-2);overflow:hidden;}
+.card-cover img{width:100%;height:100%;object-fit:cover;}
+.card-badge{
+  position:absolute;top:9px;left:9px;
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;
+  background:rgba(6,35,31,.82);color:var(--accent);border:1px solid rgba(56,229,200,.4);
+}
+.card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.card-title{font-size:15px;font-weight:700;}
+.card-desc{font-size:13px;color:var(--text-2);line-height:1.65;flex:1;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{
+  font-size:11px;color:var(--text-2);
+  background:var(--panel-2);border:1px solid var(--line-soft);
+  padding:2px 8px;border-radius:99px;white-space:nowrap;
+}
+.tag.accent{color:var(--accent);border-color:rgba(56,229,200,.35);background:rgba(56,229,200,.08);}
+.card-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11.5px;color:var(--text-3);border-top:1px solid var(--line-soft);padding-top:9px;
+}
+.card-meta .hot{color:var(--accent-2);font-weight:700;}
+
+/* 更新列表 */
+.update-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel);}
+.update-item{
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+  padding:12px 16px;border-bottom:1px solid var(--line-soft);
+}
+.update-item:last-child{border-bottom:none;}
+.update-item:hover{background:var(--panel-2);}
+.update-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;box-shadow:0 0 0 4px rgba(56,229,200,.12);}
+.update-dot.warn{background:var(--accent-2);box-shadow:0 0 0 4px rgba(255,209,102,.12);}
+.update-dot.blue{background:var(--accent-3);box-shadow:0 0 0 4px rgba(90,169,255,.12);}
+.update-main{min-width:0;}
+.update-name{font-size:14px;font-weight:600;}
+.update-sum{font-size:12.5px;color:var(--text-3);margin-top:2px;}
+.update-time{font-size:12px;color:var(--text-3);white-space:nowrap;}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
+.cat-item{
+  display:flex;flex-direction:column;gap:4px;
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:13px 14px;transition:.18s;
+}
+.cat-item:hover{border-color:var(--accent);background:var(--panel-2);}
+.cat-item b{font-size:14px;}
+.cat-item span{font-size:12px;color:var(--text-3);}
+
+/* 深度解析 */
+.article-body{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px 28px;
+}
+.article-body h3{
+  font-size:16.5px;margin:22px 0 10px;color:var(--accent);
+  padding-left:10px;border-left:3px solid rgba(56,229,200,.5);
+}
+.article-body h3:first-child{margin-top:0;}
+.article-body p{color:var(--text-2);font-size:14.5px;}
+.article-body ul,.article-body ol{color:var(--text-2);font-size:14.5px;margin-bottom:14px;}
+.article-body li{margin-bottom:6px;}
+.article-body strong{color:var(--text);}
+.article-body .callout{
+  background:var(--panel-2);border:1px solid var(--line-soft);
+  border-left:3px solid var(--accent-2);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:12px 16px;font-size:13.5px;color:var(--text-2);margin:16px 0;
+}
+
+/* 体验路径 步骤 */
+.steps{display:grid;gap:12px;}
+.step{
+  display:grid;grid-template-columns:44px 1fr;gap:14px;
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);padding:16px 18px;
+}
+.step-num{
+  width:44px;height:44px;border-radius:12px;
+  display:grid;place-items:center;
+  background:linear-gradient(160deg,rgba(56,229,200,.18),rgba(90,169,255,.12));
+  border:1px solid rgba(56,229,200,.35);
+  font-weight:800;color:var(--accent);font-size:16px;
+}
+.step h3{font-size:15px;margin-bottom:5px;}
+.step p{font-size:13.5px;color:var(--text-2);margin:0;}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px;}
+details{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:0;overflow:hidden;
+}
+details[open]{border-color:rgba(56,229,200,.4);}
+summary{
+  cursor:pointer;list-style:none;padding:14px 18px;
+  font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+summary::-webkit-details-marker{display:none;}
+summary::after{
+  content:"+";flex:none;color:var(--accent);font-size:18px;font-weight:400;line-height:1;
+}
+details[open] summary::after{content:"−";}
+.faq-answer{padding:0 18px 16px;font-size:13.8px;color:var(--text-2);border-top:1px solid var(--line-soft);padding-top:12px;}
+
+/* 评论 */
+.comment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+.comment{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:14px 16px;
+}
+.comment-head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+.avatar{
+  width:30px;height:30px;border-radius:50%;flex:none;
+  display:grid;place-items:center;font-size:12px;font-weight:700;
+  background:linear-gradient(150deg,#1d3b4d,#22405a);color:var(--accent);
+  border:1px solid var(--line);
+}
+.comment-name{font-size:13px;font-weight:700;}
+.comment-time{font-size:11px;color:var(--text-3);margin-left:auto;}
+.comment p{font-size:13.2px;color:var(--text-2);margin:0;}
+.comment .star{color:var(--accent-2);font-size:11px;letter-spacing:1px;}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:12px;}
+.news-item{
+  display:grid;grid-template-columns:130px 1fr;gap:16px;
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;transition:.18s;
+}
+.news-item:hover{border-color:rgba(90,169,255,.45);}
+.news-thumb{height:100%;min-height:96px;}
+.news-thumb img{width:100%;height:100%;object-fit:cover;}
+.news-body{padding:13px 16px 14px 0;}
+.news-body h3{font-size:14.5px;margin-bottom:5px;}
+.news-body p{font-size:13px;color:var(--text-2);margin:0 0 7px;}
+.news-date{font-size:11.5px;color:var(--text-3);}
+
+/* 相关推荐 标签索引 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:9px;}
+.rec-tags a{
+  font-size:13px;padding:7px 14px;border-radius:99px;
+  background:var(--panel);border:1px solid var(--line);color:var(--text-2);
+  transition:.16s;
+}
+.rec-tags a:hover{border-color:var(--accent);color:var(--accent);background:var(--panel-2);}
+
+/* 榜单 */
+.rank-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel);}
+.rank-item{
+  display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;
+  padding:11px 16px;border-bottom:1px solid var(--line-soft);
+}
+.rank-item:last-child{border-bottom:none;}
+.rank-no{
+  font-size:14px;font-weight:800;color:var(--text-3);text-align:center;
+}
+.rank-item:nth-child(1) .rank-no{color:#ffd166;}
+.rank-item:nth-child(2) .rank-no{color:#c9d6e4;}
+.rank-item:nth-child(3) .rank-no{color:#e0a06a;}
+.rank-name{font-size:14px;font-weight:600;}
+.rank-sub{font-size:12px;color:var(--text-3);}
+.rank-val{font-size:12.5px;color:var(--accent);font-weight:700;white-space:nowrap;}
+
+/* 侧栏热榜 */
+.hot-list{display:flex;flex-direction:column;gap:10px;}
+.hot-item{display:flex;gap:10px;align-items:flex-start;}
+.hot-num{
+  flex:none;width:20px;height:20px;border-radius:6px;
+  display:grid;place-items:center;font-size:11px;font-weight:800;
+  background:var(--panel-2);color:var(--text-3);
+}
+.hot-item:nth-child(1) .hot-num{background:rgba(255,209,102,.16);color:var(--accent-2);}
+.hot-item:nth-child(2) .hot-num{background:rgba(90,169,255,.16);color:var(--accent-3);}
+.hot-item:nth-child(3) .hot-num{background:rgba(56,229,200,.16);color:var(--accent);}
+.hot-text{font-size:13px;line-height:1.5;}
+.hot-text small{display:block;color:var(--text-3);font-size:11.5px;}
+
+/* 状态面板 */
+.status-list{display:flex;flex-direction:column;gap:9px;}
+.status-item{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.8px;}
+.status-item .name{color:var(--text-2);}
+.pill{font-size:11px;padding:2px 9px;border-radius:99px;font-weight:700;}
+.pill.ok{background:rgba(56,229,200,.14);color:var(--accent);}
+.pill.slow{background:rgba(255,209,102,.14);color:var(--accent-2);}
+.pill.maint{background:rgba(255,122,122,.14);color:var(--danger);}
+
+/* 页尾 */
+.site-footer{
+  margin-top:40px;border-top:1px solid var(--line);
+  background:var(--bg-soft);
+}
+.footer-inner{
+  max-width:1320px;margin:0 auto;padding:34px 20px 22px;
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px;
+}
+.footer-brand .brand{margin-bottom:12px;}
+.footer-brand p{font-size:12.8px;color:var(--text-3);max-width:280px;}
+.footer-col h4{font-size:13px;color:var(--text-2);margin-bottom:11px;letter-spacing:.06em;}
+.footer-col a{display:block;font-size:12.8px;color:var(--text-3);padding:3px 0;}
+.footer-col a:hover{color:var(--accent);}
+.footer-bottom{
+  border-top:1px solid var(--line-soft);
+  max-width:1320px;margin:0 auto;padding:14px 20px 22px;
+  font-size:11.5px;color:var(--text-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+/* 搜索无结果 */
+.no-result{
+  display:none;padding:16px;border:1px dashed var(--line);
+  border-radius:var(--radius-sm);color:var(--text-3);font-size:13.5px;text-align:center;
+}
+.no-result.show{display:block;}
+.hidden{display:none !important;}
+
+/* 响应式 */
+@media (max-width:1100px){
+  .layout{grid-template-columns:170px minmax(0,1fr);}
+  .col-right{position:static;grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;}
+  .col-right .panel{flex:1 1 260px;}
+}
+@media (max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:22px;}
+  .hero-visual{max-width:460px;margin:0 auto;}
+  .header-search input{width:130px;}
+}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;}
+  .col-left{position:static;grid-column:1 / -1;}
+  .channel-list{flex-direction:row;flex-wrap:wrap;gap:6px;}
+  .channel-list a{background:var(--panel-2);border:1px solid var(--line-soft);padding:6px 11px;font-size:12.5px;}
+  .side-nav-links{flex-direction:row;flex-wrap:wrap;gap:4px 14px;}
+  .side-nav-links a{border-bottom:none;font-size:12.5px;}
+  .col-right{grid-column:1 / -1;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  .header-inner{gap:10px;padding:10px 14px;}
+  .brand-name{font-size:15px;}
+  .header-nav{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;}
+  .header-nav a{white-space:nowrap;font-size:12.5px;}
+  .header-search{margin-left:auto;}
+  .header-search input{width:110px;}
+  .hero-inner{padding:30px 14px 34px;}
+  .layout{padding:22px 14px 8px;gap:22px;}
+  .article-body{padding:20px 18px;}
+  .news-item{grid-template-columns:96px 1fr;}
+  .update-item{grid-template-columns:auto 1fr;gap:10px;}
+  .update-time{grid-column:2;font-size:11px;}
+  .footer-inner{grid-template-columns:1fr;gap:20px;padding:26px 14px 16px;}
+  .footer-bottom{padding:12px 14px 20px;flex-direction:column;}
+  .hero-stats{gap:18px;}
+  .card-grid{grid-template-columns:1fr 1fr;}
+  .comment-grid{grid-template-columns:1fr;}
+}
+@media (max-width:420px){
+  .card-grid{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-wrap">
+  <!-- 吸顶公告条 -->
+  <div class="notice-bar">
+    <div class="inner">
+      <span class="notice-tag">线路公告</span>
+      <span class="marquee-text">
+        11 月 8 日线路 E 恢复直连 · 本周新增 <b>6 个可用镜像</b> · 线路 C 进入维护，预计 11 月 10 日回归 · 主域名解析已切换至新节点
+      </span>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/#top">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#0f1b2a"/>
+          <circle cx="32" cy="30" r="13" fill="none" stroke="#38e5c8" stroke-width="4"/>
+          <path d="M32 17v-7M32 50v7M19 30h-7M52 30h7" stroke="#38e5c8" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="30" r="4" fill="#ffd166"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">秘密研究所最新地址发布页</span>
+          <span class="brand-sub">ENTRY STATUS · 2026</span>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="主题导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#entries">精选入口</a>
+        <a href="/#updates">线路更新</a>
+        <a href="/#channels">分类频道</a>
+        <a href="/#deepdive">深度解析</a>
+        <a href="/#guide">访问指南</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#rank">线路榜单</a>
+      </nav>
+      <form class="header-search" role="search" onsubmit="return false;">
+        <input id="siteSearch" type="search" placeholder="搜索线路 / 镜像 / 状态" aria-label="搜索线路或镜像">
+        <button type="button" id="searchBtn">查找</button>
+      </form>
+    </div>
+  </header>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-kicker"><i></i>线路状态 · 每日复核</span>
+      <h1>秘密研究所最新地址发布页</h1>
+      <p class="hero-lead">这里汇总该研究所入口的可用线路、镜像域名与访问状态记录，包含线路测速结果、维护公告、备用通道说明和访问异常的排查方法，方便在不同网络环境下快速定位当前可用的入口。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/#entries">查看当前可用入口</a>
+        <a class="btn btn-ghost" href="/#updates">线路更新记录</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>9 条</strong><span>在册线路</span></div>
+        <div><strong>6 个</strong><span>本周新增镜像</span></div>
+        <div><strong>11-08</strong><span>最近复核时间</span></div>
+        <div><strong>98.2%</strong><span>近 7 日可用率</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 460 340" role="presentation">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#38e5c8" stop-opacity=".9"/>
+            <stop offset="1" stop-color="#5aa9ff" stop-opacity=".5"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#ffd166" stop-opacity=".85"/>
+            <stop offset="1" stop-color="#ff9b6a" stop-opacity=".35"/>
+          </linearGradient>
+        </defs>
+        <rect x="26" y="30" width="408" height="280" rx="18" fill="#101a26" stroke="#243446"/>
+        <circle cx="230" cy="150" r="62" fill="none" stroke="url(#g1)" stroke-width="2" stroke-dasharray="7 9"/>
+        <circle cx="230" cy="150" r="40" fill="none" stroke="url(#g1)" stroke-width="2"/>
+        <circle cx="230" cy="150" r="18" fill="url(#g2)"/>
+        <circle cx="230" cy="150" r="7" fill="#0b121c"/>
+        <g stroke="#243446" stroke-width="1.5">
+          <line x1="230" y1="88" x2="230" y2="62"/>
+          <line x1="230" y1="212" x2="230" y2="238"/>
+          <line x1="168" y1="150" x2="142" y2="150"/>
+          <line x1="292" y1="150" x2="318" y2="150"/>
+        </g>
+        <circle cx="230" cy="62" r="5" fill="#38e5c8"/>
+        <circle cx="230" cy="238" r="5" fill="#5aa9ff"/>
+        <circle cx="142" cy="150" r="5" fill="#ffd166"/>
+        <circle cx="318" cy="150" r="5" fill="#38e5c8"/>
+        <g font-family="monospace" font-size="11" fill="#7d92a8">
+          <text x="46" y="58">LINE_A · OK</text>
+          <text x="46" y="286">LINE_F · OK</text>
+          <text x="330" y="286">MIRROR_06</text>
+          <text x="330" y="58">11-08 09:30</text>
+        </g>
+        <g stroke="#38e5c8" stroke-width="1.5" fill="none" opacity=".55">
+          <path d="M60 250 L110 220 L150 236 L200 200"/>
+          <path d="M270 108 L320 92 L360 104 L400 84"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 三栏门户主内容区 -->
+<div class="layout">
+
+  <!-- 左频道索引 -->
+  <aside class="col-left" aria-label="频道索引">
+    <div class="panel">
+      <div class="panel-title">频道索引</div>
+      <nav class="channel-list" aria-label="分类频道">
+        <a href="/#channels">主站入口 <span class="count">3</span></a>
+        <a href="/#channels">镜像域名 <span class="count">6</span></a>
+        <a href="/#channels">备用通道 <span class="count">4</span></a>
+        <a href="/#channels">移动端线路 <span class="count">3</span></a>
+        <a href="/#channels">海外节点 <span class="count">2</span></a>
+        <a href="/#channels">线路测速 <span class="count">9</span></a>
+        <a href="/#channels">维护公告 <span class="count">5</span></a>
+        <a href="/#channels">访问排障 <span class="count">7</span></a>
+        <a href="/#channels">历史地址 <span class="count">12</span></a>
+        <a href="/#channels">状态订阅 <span class="count">2</span></a>
+      </nav>
+    </div>
+    <div class="panel">
+      <div class="panel-title">本页跳转</div>
+      <nav class="side-nav-links" aria-label="板块跳转">
+        <a href="/#overview">领域概览</a>
+        <a href="/#entries">精选入口</a>
+        <a href="/#updates">线路更新</a>
+        <a href="/#deepdive">深度解析</a>
+        <a href="/#guide">访问指南</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#comments">访客评论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#recs">相关推荐</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- 中主内容 -->
+  <main class="main-col" id="main">
+
+    <!-- 1 主题领域概览 -->
+    <section class="block" id="overview">
+      <div class="block-head">
+        <h2>秘密研究所入口线路概览</h2>
+        <span class="sub">9 条在册线路 · 2026-11-08 复核</span>
+      </div>
+      <div class="overview">
+        <p>“秘密研究所”是一个以长期连载型档案与解谜内容为主的内容站，入口会因域名轮换、节点迁移和网络策略调整而变动，因此围绕它形成了一类专门的聚合需求：把当前可用的<strong>主站入口</strong>、<strong>镜像域名</strong>、<strong>备用通道</strong>与<strong>线路测速</strong>结果集中记录，并标注每条线路的复核时间与状态。这类页面关心的不是内容本身，而是“现在从哪条路进得去、进去之后体验如何”。</p>
+        <p>从结构上看，入口信息通常分为四层。第一层是主域名，解析稳定但受网络策略影响最直接；第二层是镜像域名，数量多、切换快，适合在主域名不可达时作为第一替补；第三层是备用通道，包括不同端口、不同协议前缀的访问方式，稳定性略低但覆盖面广；第四层是移动端与海外节点，针对特定网络环境单独优化。每条线路都需要记录<strong>可用状态</strong>、<strong>平均响应时间</strong>和<strong>最近一次复核时间</strong>，三者缺一不可。</p>
+        <p>当前值得关注的具体变化有三点：11 月 8 日线路 E 由维护转为直连，响应时间回落至 120ms 区间；线路 C 于 11 月 6 日进入维护，预计 11 月 10 日恢复；本周新增 6 个镜像域名，其中 4 个已完成首轮测速。对于长期访问的访客，建议同时保留一条主域名线路和两条不同来源的镜像，避免单点失效时无处可去。</p>
+      </div>
+    </section>
+
+    <!-- 2 精选入口推荐 -->
+    <section class="block" id="entries">
+      <div class="block-head">
+        <h2>当前可用入口精选</h2>
+        <span class="sub">按状态与响应时间排序</span>
+      </div>
+      <p class="block-lead">以下入口为 11 月 8 日上午复核后仍可访问的线路，标注了线路类型、响应时间与最近复核时间，可作为首选与备选组合使用。</p>
+      <div class="card-grid" id="entryGrid">
+
+        <article class="card" data-search="主站入口 线路A 直连 稳定">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/mimi-line-a01/400/300" width="400" height="300" loading="lazy" alt="线路 A 主站入口状态面板示意图">
+            <span class="card-badge">首选</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">线路 A · 主站直连入口</h3>
+            <p class="card-desc">主域名直连线路，解析稳定，适合桌面端长期访问。近 7 日可用率 99.1%，是当前唯一保持连续可用的主站线路。</p>
+            <div class="tag-row">
+              <span class="tag accent">主站入口</span>
+              <span class="tag">直连</span>
+              <span class="tag">桌面优先</span>
+            </div>
+            <div class="card-meta"><span>响应 118ms</span><span class="hot">可用率 99.1%</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="镜像域名 线路B 镜像 快速">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/mimi-mirror-b02/400/300" width="400" height="300" loading="lazy" alt="线路 B 镜像域名访问状态示意图">
+            <span class="card-badge">镜像</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">线路 B · 镜像域名（华东）</h3>
+            <p class="card-desc">华东节点镜像，页面加载速度优于主站，适合移动网络。资源加载完整，未发现样式缺失问题。</p>
+            <div class="tag-row">
+              <span class="tag accent">镜像域名</span>
+              <span class="tag">华东节点</span>
+              <span class="tag">移动友好</span>
+            </div>
+            <div class="card-meta"><span>响应 96ms</span><span class="hot">可用率 98.4%</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="备用通道 线路E 直连 恢复">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/mimi-line-e03/400/300" width="400" height="300" loading="lazy" alt="线路 E 恢复直连后的通道状态示意图">
+            <span class="card-badge">已恢复</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">线路 E · 直连通道（已恢复）</h3>
+            <p class="card-desc">11 月 8 日上午由维护转为直连，响应时间从 480ms 回落至 120ms 区间。适合作为主站线路的并行备份。</p>
+            <div class="tag-row">
+              <span class="tag accent">备用通道</span>
+              <span class="tag">直连</span>
+              <span class="tag">已恢复</span>
+            </div>
+            <div class="card-meta"><span>响应 124ms</span><span class="hot">可用率 97.6%</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="移动端线路 线路M 手机 优化">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/mimi-mobile-m04/400/300" width="400" height="300" loading="lazy" alt="移动端线路 M 的手机访问优化示意图">
+            <span class="card-badge">移动</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">线路 M · 移动端专用入口</h3>
+            <p class="card-desc">针对蜂窝网络优化的移动端线路，页面体积压缩明显，弱网环境下首屏完成时间约 2.4 秒。</p>
+            <div class="tag-row">
+              <span class="tag accent">移动端线路</span>
+              <span class="tag">弱网优化</span>
+              <span class="tag">蜂窝网络</span>
+            </div>
+            <div class="card-meta"><span>响应 142ms</span><span class="hot">可用率 96.8%</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="海外节点 线路O 海外 加速">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/mimi-oversea-o05/400/300" width="400" height="300" loading="lazy" alt="海外节点线路 O 的加速访问示意图">
+            <span class="card-badge">海外</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">线路 O · 海外节点入口</h3>
+            <p class="card-desc">面向海外网络的独立节点，国内访问需中转，适合长期在境外使用的访客，稳定性较高。</p>
+            <div class="tag-row">
+              <span class="tag accent">海外节点</span>
+              <span class="tag">境外网络</span>
+              <span class="tag">中转</span>
+            </div>
+            <div class="card-meta"><span>响应 210ms</span><span class="hot">可用率 98.9%</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="镜像域名 线路G 新镜像 新增">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/mimi-mirror-g06/400/300" width="400" height="300" loading="lazy" alt="本周新增镜像线路 G 的测试状态示意图">
+            <span class="card-badge">新增</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">线路 G · 本周新增镜像</h3>
+            <p class="card-desc">11 月 5 日新增的镜像域名，已完成首轮测速，页面结构与主站一致，尚未发现资源缺失。</p>
+            <div class="tag-row">
+              <span class="tag accent">镜像域名</span>
+              <span class="tag">新增</span>
+              <span class="tag">首轮测速</span>
+            </div>
+            <div class="card-meta"><span>响应 105ms</span><span class="hot">可用率 97.2%</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="维护公告 线路C 维护 暂停">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/mimi-maint-c07/400/300" width="400" height="300" loading="lazy" alt="线路 C 维护公告状态示意图">
+            <span class="card-badge">维护中</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">线路 C · 维护状态说明</h3>
+            <p class="card-desc">11 月 6 日进入维护，当前不可访问，预计 11 月 10 日恢复。维护期间请改用线路 A 或线路 B。</p>
+            <div class="tag-row">
+              <span class="tag accent">维护公告</span>
+              <span class="tag">暂不可用</span>
+              <span class="tag">预计恢复</span>
+            </div>
+            <div class="card-meta"><span>状态 维护</span><span class="hot">预计 11-10</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="线路测速 线路F 测速 数据">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/mimi-speed-f08/400/300" width="400" height="300" loading="lazy" alt="线路 F 测速数据面板示意图">
+            <span class="card-badge">测速</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">线路 F · 测速数据记录</h3>
+            <p class="card-desc">连续 7 日测速记录完整，波动幅度小于 15ms，适合对响应稳定性要求较高的访客。</p>
+            <div class="tag-row">
+              <span class="tag accent">线路测速</span>
+              <span class="tag">稳定</span>
+              <span class="tag">7 日记录</span>
+            </div>
+            <div class="card-meta"><span>响应 133ms</span><span class="hot">波动 ±12ms</span></div>
+          </div>
+        </article>
+
+      </div>
+      <div class="no-result" id="noResult">没有找到匹配的线路，请尝试“主站”“镜像”“移动”“维护”等关键词。</div>
+    </section>
+
+    <!-- 3 最新更新 / 动态 -->
+    <section class="block" id="updates">
+      <div class="block-head">
+        <h2>线路更新与状态动态</h2>
+        <span class="sub">2026-11-08 09:30 汇总</span>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <span class="update-dot"></span>
+          <div class="update-main">
+            <div class="update-name">线路 E 恢复直连</div>
+            <div class="update-sum">维护结束，响应时间回落至 120ms 区间，已重新纳入首选备选列表。</div>
+          </div>
+          <span class="update-time">今天 09:30</span>
+        </div>
+        <div class="update-item">
+          <span class="update-dot blue"></span>
+          <div class="update-main">
+            <div class="update-name">新增镜像 4 个（线路 G 系列）</div>
+            <div class="update-sum">本周累计新增 6 个镜像域名，其中 4 个完成首轮测速并标记为可用。</div>
+          </div>
+          <span class="update-time">今天 08:52</span>
+        </div>
+        <div class="update-item">
+          <span class="update-dot warn"></span>
+          <div class="update-main">
+            <div class="update-name">线路 C 进入维护</div>
+            <div class="update-sum">11 月 6 日 22:00 起暂停访问，预计 11 月 10 日恢复，期间由线路 A 承接主要流量。</div>
+          </div>
+          <span class="update-time">11-06 22:00</span>
+        </div>
+        <div class="update-item">
+          <span class="update-dot"></span>
+          <div class="update-main">
+            <div class="update-name">主域名解析切换至新节点</div>
+            <div class="update-sum">解析记录已更新，部分地区生效存在延迟，建议刷新本地 DNS 缓存后重试。</div>
+          </div>
+          <span class="update-time">11-05 18:40</span>
+        </div>
+        <div class="update-item">
+          <span class="update-dot blue"></span>
+          <div class="update-main">
+            <div class="update-name">移动端线路 M 页面体积压缩</div>
+            <div class="update-sum">弱网环境下首屏完成时间缩短约 0.6 秒，蜂窝网络体验改善明显。</div>
+          </div>
+          <span class="update-time">11-04 14:15</span>
+        </div>
+        <div class="update-item">
+          <span class="update-dot"></span>
+          <div class="update-main">
+            <div class="update-name">线路 F 完成连续 7 日测速</div>
+            <div class="update-sum">波动幅度控制在 ±12ms 以内，成为当前响应最稳定的镜像线路。</div>
+          </div>
+          <span class="update-time">11-03 21:10</span>
+        </div>
+        <div class="update-item">
+          <span class="update-dot warn"></span>
+          <div class="update-main">
+            <div class="update-name">线路 O 海外节点调整中转策略</div>
+            <div class="update-sum">境外访问路径优化，国内中转节点由 2 个调整为 1 个，延迟略有上升。</div>
+          </div>
+          <span class="update-time">11-02 11:05</span>
+        </div>
+        <div class="update-item">
+          <span class="update-dot blue"></span>
+          <div class="update-main">
+            <div class="update-name">历史地址归档新增 12 条</div>
+            <div class="update-sum">10 月内轮换下线的地址已全部归档，便于对照排查旧链接跳转问题。</div>
+          </div>
+          <span class="update-time">11-01 16:30</span>
+        </div>
+        <div class="update-item">
+          <span class="update-dot"></span>
+          <div class="update-main">
+            <div class="update-name">线路 A 主域名证书更新</div>
+            <div class="update-sum">证书有效期延长，浏览器安全提示已消除，桌面端访问无中断。</div>
+          </div>
+          <span class="update-time">10-30 09:20</span>
+        </div>
+        <div class="update-item">
+          <span class="update-dot warn"></span>
+          <div class="update-main">
+            <div class="update-name">备用通道协议前缀调整</div>
+            <div class="update-sum">部分备用通道前缀变更，旧前缀仍可跳转，建议更新收藏夹中的链接。</div>
+          </div>
+          <span class="update-time">10-28 20:45</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="block" id="channels">
+      <div class="block-head">
+        <h2>入口分类频道</h2>
+        <span class="sub">按线路类型与用途划分</span>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-item" href="/#entries"><b>主站入口</b><span>3 条 · 直连优先</span></a>
+        <a class="cat-item" href="/#entries"><b>镜像域名</b><span>6 条 · 快速替补</span></a>
+        <a class="cat-item" href="/#entries"><b>备用通道</b><span>4 条 · 多协议</span></a>
+        <a class="cat-item" href="/#entries"><b>移动端线路</b><span>3 条 · 弱网优化</span></a>
+        <a class="cat-item" href="/#entries"><b>海外节点</b><span>2 条 · 境外访问</span></a>
+        <a class="cat-item" href="/#rank"><b>线路测速</b><span>9 条 · 响应记录</span></a>
+        <a class="cat-item" href="/#updates"><b>维护公告</b><span>5 条 · 状态变更</span></a>
+        <a class="cat-item" href="/#faq"><b>访问排障</b><span>7 个 · 常见问题</span></a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析 -->
+    <section class="block" id="deepdive">
+      <div class="block-head">
+        <h2>入口线路的类型差异与判断方法</h2>
+        <span class="sub">深度解析</span>
+      </div>
+      <div class="article-body">
+        <h3>主站入口与镜像域名的实际差别</h3>
+        <p>很多人把主站入口和镜像域名混为一谈，但两者在访问体验上有明显区别。主站入口使用官方主域名，解析记录稳定，页面资源完整，功能模块齐全，缺点是受网络策略影响最直接，一旦主域名不可达，短时间内没有替代方案。镜像域名则是同一内容在不同域名下的副本，数量多、切换快，适合作为第一替补，但镜像可能存在资源加载不全、样式缺失或功能延迟上线的问题。</p>
+        <p>判断一条镜像是否可用，不能只看能否打开首页。实际检查应包含三项：页面样式是否完整加载、内容列表是否正常渲染、站内跳转是否仍指向可用地址。只满足第一项的镜像，往往在进入二级页面后暴露问题。</p>
+
+        <h3>备用通道的协议前缀差异</h3>
+        <p>备用通道通常通过不同的协议前缀或端口区分。常见的有三类：</p>
+        <ul>
+          <li><strong>标准前缀通道</strong>：与主站一致，兼容性最好，但可用性受同一网络策略影响。</li>
+          <li><strong>加密前缀通道</strong>：握手阶段多一次协商，首次加载略慢，弱网环境下成功率更高。</li>
+          <li><strong>端口偏移通道</strong>：使用非标准端口，绕过部分端口限制，但部分企业网络会直接拦截。</li>
+        </ul>
+        <p>选择备用通道时，优先考虑与当前网络环境不冲突的类型。例如在公司网络中，端口偏移通道往往最先失效；而在移动蜂窝网络下，加密前缀通道的成功率通常更高。</p>
+
+        <h3>线路测速数据怎么看</h3>
+        <p>测速数据由响应时间、波动幅度和可用率三项构成，三项需要结合看。响应时间反映单次访问的快慢，波动幅度反映稳定性，可用率反映长期可靠性。一条响应 90ms 但波动 ±60ms 的线路，实际体验可能不如响应 130ms 但波动 ±10ms 的线路。</p>
+        <div class="callout">参考判断标准：响应时间低于 150ms 为良好，150—300ms 为可接受，高于 300ms 需考虑更换；波动幅度小于 20ms 视为稳定；可用率低于 95% 的线路不建议作为首选。</div>
+
+        <h3>维护公告与历史地址的用途</h3>
+        <p>维护公告记录线路进入与退出维护的时间点，历史地址则归档已经下线的旧链接。两者结合使用，可以快速判断“打不开”是因为线路维护、地址下线，还是本地网络问题。例如某条旧链接无法访问时，先查历史地址是否已归档，再查维护公告是否覆盖该时间段，就能排除大部分误判。</p>
+        <p>对于长期访问的访客，建议在收藏夹中同时保留一条主站入口、两条不同来源的镜像和一条备用通道，并每隔两周对照更新记录检查一次，避免收藏的地址在无感知的情况下失效。</p>
+
+        <h3>不同网络环境下的线路选择顺序</h3>
+        <ol>
+          <li><strong>家庭宽带</strong>：优先主站入口，其次华东镜像，备用通道放最后。</li>
+          <li><strong>移动蜂窝网络</strong>：优先移动端线路 M，其次加密前缀通道。</li>
+          <li><strong>公司或校园网络</strong>：优先标准前缀镜像，避开端口偏移通道。</li>
+          <li><strong>境外网络</strong>：直接使用海外节点线路 O，无需中转。</li>
+        </ol>
+        <p>这套顺序并非固定不变，实际使用中应根据当天的状态记录调整。线路状态是动态的，昨天的首选今天可能进入维护，因此每次访问前花十几秒看一眼更新记录，比记住一套固定顺序更有效。</p>
+      </div>
+    </section>
+
+    <!-- 6 体验指南 / 消费路径 -->
+    <section class="block" id="guide">
+      <div class="block-head">
+        <h2>访问路径与判断顺序</h2>
+        <span class="sub">从打开到稳定使用的四步</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>先看当天状态记录</h3>
+            <p>打开页面后先看线路更新与状态动态，确认首选线路是否处于维护状态。维护中的线路即使能打开首页，二级页面也可能异常。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>按网络环境选线路类型</h3>
+            <p>家庭宽带选主站入口，移动网络选移动端线路，公司网络避开端口偏移通道。类型选对，后续排障成本会低很多。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>验证页面完整性</h3>
+            <p>能打开不等于可用。检查样式是否完整、内容列表是否渲染、站内跳转是否正常，三项都通过才算真正可用。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h3>保留两条以上备选</h3>
+            <p>把当前可用的主站入口和一条镜像同时加入收藏，并记录复核日期。两周后对照更新记录复查一次，避免收藏失效。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 FAQ -->
+    <section class="block" id="faq">
+      <div class="block-head">
+        <h2>入口访问常见问答</h2>
+        <span class="sub">6 个高频问题</span>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>主站入口打不开，是线路下线还是本地网络问题？</summary>
+          <div class="faq-answer">先看状态记录中主站线路是否标注维护，再看历史地址是否已归档。两者都正常时，刷新本地 DNS 缓存并换一个网络环境重试；若换网络后仍不可达，基本可判断为线路侧问题。</div>
+        </details>
+        <details>
+          <summary>镜像域名和主站入口的内容完全一样吗？</summary>
+          <div class="faq-answer">主体内容一致，但镜像可能存在资源加载不全、样式缺失或新功能延迟上线的情况。判断镜像是否可用，除了能打开首页，还要检查内容列表渲染和站内跳转是否正常。</div>
+        </details>
+        <details>
+          <summary>线路测速里的响应时间和波动幅度，哪个更重要？</summary>
+          <div class="faq-answer">短期单次访问看响应时间，长期稳定使用看波动幅度。响应 90ms 但波动 ±60ms 的线路，实际体验往往不如响应 130ms 但波动 ±10ms 的线路。可用率低于 95% 的线路不建议作为首选。</div>
+        </details>
+        <details>
+          <summary>公司网络下哪类备用通道成功率更高？</summary>
+          <div class="faq-answer">标准前缀镜像的成功率通常最高，端口偏移通道最容易被企业网络直接拦截。加密前缀通道在部分公司网络中也会受影响，建议依次尝试标准前缀镜像、加密前缀通道、端口偏移通道。</div>
+        </details>
+        <details>
+          <summary>移动端线路 M 和主站入口在手机上有什么区别？</summary>
+          <div class="faq-answer">线路 M 针对蜂窝网络做了页面体积压缩，弱网环境下首屏完成时间约 2.4 秒，比主站入口快约 0.6 秒。主站入口在 Wi-Fi 环境下体验更好，资源完整度更高。</div>
+        </details>
+        <details>
+          <summary>多久需要重新核对一次收藏的入口地址？</summary>
+          <div class="faq-answer">建议每两周核对一次。线路轮换频率不固定，维护公告和历史地址归档会记录变更时间，对照这两项可以快速判断收藏的地址是否仍然有效。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section class="block" id="comments">
+      <div class="block-head">
+        <h2>访客评论</h2>
+        <span class="sub">16 条 · 围绕线路与访问体验</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">林</span><span class="comment-name">林间雾</span><span class="comment-time">今天 10:12</span></div>
+          <p>线路 E 恢复之后确实快了不少，昨天还要等三四秒，今天基本秒开。<span class="star">★★★★★</span></p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">陈</span><span class="comment-name">陈默记录</span><span class="comment-time">今天 09:48</span></div>
+          <p>线路 C 还在维护，我这边一直用线路 B 顶着，镜像加载完整度比预想的好。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">周</span><span class="comment-name">周舟</span><span class="comment-time">今天 09:05</span></div>
+          <p>建议把响应时间和波动幅度一起标出来，只看响应时间容易误判，我上次选了个快的但一直断。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">许</span><span class="comment-name">许知远</span><span class="comment-time">昨天 22:31</span></div>
+          <p>移动端线路 M 在弱网下确实稳，地铁里刷了几次都没白屏。<span class="star">★★★★☆</span></p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">何</span><span class="comment-name">何夜行</span><span class="comment-time">昨天 21:10</span></div>
+          <p>海外节点线路 O 的中转调整之后延迟高了一点，不过整体还能接受，比之前掉线少。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">苏</span><span class="comment-name">苏木白</span><span class="comment-time">昨天 19:44</span></div>
+          <p>新增的线路 G 系列我试了两个，样式都正常，就是有一个二级页面跳转有问题。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">沈</span><span class="comment-name">沈观澜</span><span class="comment-time">昨天 16:20</span></div>
+          <p>公司网络下端口偏移通道确实不行，换标准前缀镜像就通了，这判断方法有用。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">罗</span><span class="comment-name">罗一川</span><span class="comment-time">昨天 14:02</span></div>
+          <p>历史地址归档挺实用的，之前收藏夹里一堆旧链接，对照之后清掉了一半。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">顾</span><span class="comment-name">顾清野</span><span class="comment-time">11-06 23:15</span></div>
+          <p>线路 C 维护公告发得及时，我十点多打不开还以为是自己网络问题，看了公告才放心。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">白</span><span class="comment-name">白露未晞</span><span class="comment-time">11-06 20:38</span></div>
+          <p>线路 F 的测速数据很稳，连续一周波动都在十几毫秒，现在是我的主力镜像。<span class="star">★★★★★</span></p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">唐</span><span class="comment-name">唐小满</span><span class="comment-time">11-05 18:52</span></div>
+          <p>主域名解析切换那天我这边一直跳不过去，刷新 DNS 缓存之后就好了，建议把这一步写进排障里。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">韩</span><span class="comment-name">韩江雪</span><span class="comment-time">11-05 12:26</span></div>
+          <p>整体信息挺全的，就是线路数量多的时候有点眼花，希望能按网络环境再分个组。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">叶</span><span class="comment-name">叶落无声</span><span class="comment-time">11-04 21:07</span></div>
+          <p>移动端线路 M 的页面压缩做得不错，流量省了不少，加载也快。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">程</span><span class="comment-name">程屿</span><span class="comment-time">11-04 15:33</span></div>
+          <p>海外节点调整之后我这边延迟从 180ms 涨到 210ms，能接受，但希望后面能优化回来。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">姜</span><span class="comment-name">姜予安</span><span class="comment-time">11-03 22:48</span></div>
+          <p>备用通道的前缀变更提示很及时，收藏夹里的旧链接还能跳转，没受影响。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="avatar">魏</span><span class="comment-name">魏南风</span><span class="comment-time">11-02 10:19</span></div>
+          <p>建议维护公告里把预计恢复时间标得更醒目一点，有时候扫一眼容易漏掉。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section class="block" id="news">
+      <div class="block-head">
+        <h2>入口相关资讯</h2>
+        <span class="sub">6 条 · 10 月下旬至 11 月上旬</span>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/mimi-news-e01/600/400" width="600" height="400" loading="lazy" alt="线路 E 恢复直连的公告配图"></div>
+          <div class="news-body">
+            <h3>线路 E 提前完成维护，11 月 8 日恢复直连</h3>
+            <p>原计划 11 月 9 日恢复的线路 E 提前一天结束维护，响应时间回落至 120ms 区间，已重新纳入首选备选列表。</p>
+            <span class="news-date">2026-11-08</span>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/mimi-news-g02/600/400" width="600" height="400" loading="lazy" alt="本周新增镜像域名的测速记录配图"></div>
+          <div class="news-body">
+            <h3>本周新增 6 个镜像域名，4 个完成首轮测速</h3>
+            <p>线路 G 系列镜像陆续上线，其中 4 个已完成首轮测速并标记为可用，页面结构与主站保持一致。</p>
+            <span class="news-date">2026-11-07</span>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/mimi-news-c03/600/400" width="600" height="400" loading="lazy" alt="线路 C 维护期间的流量承接方案配图"></div>
+          <div class="news-body">
+            <h3>线路 C 维护期间，主站流量由线路 A 承接</h3>
+            <p>11 月 6 日起线路 C 暂停访问，维护期间主要流量由线路 A 承接，近两日可用率保持在 99% 以上。</p>
+            <span class="news-date">2026-11-06</span>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/mimi-news-dns04/600/400" width="600" height="400" loading="lazy" alt="主域名解析节点切换的示意图"></div>
+          <div class="news-body">
+            <h3>主域名解析切换至新节点，部分地区生效延迟</h3>
+            <p>解析记录已于 11 月 5 日更新，部分地区存在生效延迟，建议刷新本地 DNS 缓存后重新访问。</p>
+            <span class="news-date">2026-11-05</span>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/mimi-news-m05/600/400" width="600" height="400" loading="lazy" alt="移动端线路 M 弱网优化的效果配图"></div>
+          <div class="news-body">
+            <h3>移动端线路 M 完成页面体积压缩，首屏提速约 0.6 秒</h3>
+            <p>针对蜂窝网络的页面压缩已完成，弱网环境下首屏完成时间缩短至约 2.4 秒，流量消耗同步下降。</p>
+            <span class="news-date">2026-11-04</span>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/mimi-news-f06/600/400" width="600" height="400" loading="lazy" alt="线路 F 连续七日测速的波动曲线配图"></div>
+          <div class="news-body">
+            <h3>线路 F 连续 7 日测速完成，波动幅度控制在 ±12ms</h3>
+            <p>连续测速数据显示线路 F 响应稳定，波动幅度小于 15ms，成为当前响应最稳定的镜像线路。</p>
+            <span class="news-date">2026-11-03</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="block" id="recs">
+      <div class="block-head">
+        <h2>延伸方向与相关条目</h2>
+        <span class="sub">按用途与场景索引</span>
+      </div>
+      <div class="rec-tags">
+        <a href="/#deepdive">主站入口与镜像差异对照</a>
+        <a href="/#deepdive">加密前缀通道成功率</a>
+        <a href="/#guide">公司网络线路选择顺序</a>
+        <a href="/#guide">弱网环境首屏优化</a>
+        <a href="/#rank">近 7 日线路可用率榜单</a>
+        <a href="/#updates">线路 C 维护进度跟踪</a>
+        <a href="/#faq">DNS 缓存刷新排障步骤</a>
+        <a href="/#entries">海外节点线路 O 使用说明</a>
+        <a href="/#deepdive">历史地址归档查询</a>
+        <a href="/#faq">镜像资源加载不全检查</a>
+      </div>
+    </section>
+
+    <!-- 11 补充板块：线路榜单 -->
+    <section class="block" id="rank">
+      <div class="block-head">
+        <h2>近 7 日线路可用率榜单</h2>
+        <span class="sub">统计区间 11-01 至 11-08</span>
+      </div>
+      <div class="rank-list">
+        <div class="rank-item">
+          <span class="rank-no">1</span>
+          <div><div class="rank-name">线路 A · 主站直连入口</div><div class="rank-sub">主站入口 · 响应 118ms</div></div>
+          <span class="rank-val">99.1%</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-no">2</span>
+          <div><div class="rank-name">线路 O · 海外节点入口</div><div class="rank-sub">海外节点 · 响应 210ms</div></div>
+          <span class="rank-val">98.9%</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-no">3</span>
+          <div><div class="rank-name">线路 B · 镜像域名（华东）</div><div class="rank-sub">镜像域名 · 响应 96ms</div></div>
+          <span class="rank-val">98.4%</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-no">4</span>
+          <div><div class="rank-name">线路 E · 直连通道</div><div class="rank-sub">备用通道 · 响应 124ms</div></div>
+          <span class="rank-val">97.6%</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-no">5</span>
+          <div><div class="rank-name">线路 G · 本周新增镜像</div><div class="rank-sub">镜像域名 · 响应 105ms</div></div>
+          <span class="rank-val">97.2%</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-no">6</span>
+          <div><div class="rank-name">线路 M · 移动端专用入口</div><div class="rank-sub">移动端线路 · 响应 142ms</div></div>
+          <span class="rank-val">96.8%</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-no">7</span>
+          <div><div class="rank-name">线路 F · 测速数据记录</div><div class="rank-sub">线路测速 · 波动 ±12ms</div></div>
+          <span class="rank-val">96.3%</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="col-right" aria-label="辅助信息">
+    <div class="panel">
+      <div class="panel-title">当前线路状态</div>
+      <div class="status-list">
+        <div class="status-item"><span class="name">线路 A · 主站直连</span><span class="pill ok">可用</span></div>
+        <div class="status-item"><span class="name">线路 B · 华东镜像</span><span class="pill ok">可用</span></div>
+        <div class="status-item"><span class="name">线路 C · 维护中</span><span class="pill maint">维护</span></div>
+        <div class="status-item"><span class="name">线路 E · 直连通道</span><span class="pill ok">已恢复</span></div>
+        <div class="status-item"><span class="name">线路 F · 测速线路</span><span class="pill ok">可用</span></div>
+        <div class="status-item"><span class="name">线路 M · 移动端</span><span class="pill slow">偏慢</span></div>
+        <div class="status-item"><span class="name">线路 O · 海外节点</span><span class="pill ok">可用</span></div>
+        <div class="status-item"><span class="name">线路 G · 新增镜像</span><span class="pill ok">可用</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">访问热度</div>
+      <div class="hot-list">
+        <div class="hot-item"><span class="hot-num">1</span><div class="hot-text">线路 A 主站直连<small>今日访问 3.2k</small></div></div>
+        <div class="hot-item"><span class="hot-num">2</span><div class="hot-text">线路 B 华东镜像<small>今日访问 2.7k</small></div></div>
+        <div class="hot-item"><span class="hot-num">3</span><div class="hot-text">线路 E 直连通道<small>今日访问 1.9k</small></div></div>
+        <div class="hot-item"><span class="hot-num">4</span><div class="hot-text">移动端线路 M<small>今日访问 1.4k</small></div></div>
+        <div class="hot-item"><span class="hot-num">5</span><div class="hot-text">海外节点线路 O<small>今日访问 960</small></div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">快速跳转</div>
+      <nav class="side-nav-links" aria-label="辅助跳转">
+        <a href="/#updates">线路维护公告</a>
+        <a href="/#rank">可用率榜单</a>
+        <a href="/#faq">DNS 排障问答</a>
+        <a href="/#recs">历史地址归档</a>
+      </nav>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="/#top">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#0f1b2a"/>
+          <circle cx="32" cy="30" r="13" fill="none" stroke="#38e5c8" stroke-width="4"/>
+          <path d="M32 17v-7M32 50v7M19 30h-7M52 30h7" stroke="#38e5c8" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="30" r="4" fill="#ffd166"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">秘密研究所最新地址发布页</span>
+          <span class="brand-sub">ENTRY STATUS · 2026</span>
+        </span>
+      </a>
+      <p>记录入口线路的可用状态、镜像域名、备用通道与测速数据，帮助访客在不同网络环境下快速定位当前可用的访问路径。</p>
+    </div>
+    <div class="footer-col">
+      <h4>线路频道</h4>
+      <a href="/#entries">主站入口</a>
+      <a href="/#entries">镜像域名</a>
+      <a href="/#entries">备用通道</a>
+      <a href="/#entries">移动端线路</a>
+      <a href="/#entries">海外节点</a>
+    </div>
+    <div class="footer-col">
+      <h4>状态与工具</h4>
+      <a href="/#updates">线路更新</a>
+      <a href="/#rank">可用率榜单</a>
+      <a href="/#deepdive">深度解析</a>
+      <a href="/#guide">访问指南</a>
+      <a href="/#faq">常见问答</a>
+    </div>
+    <div class="footer-col">
+      <h4>社区与延伸</h4>
+      <a href="/#comments">访客评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#recs">相关推荐</a>
+      <a href="/#overview">领域概览</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 秘密研究所最新地址发布页 · 内容聚合示例</span>
+    <span>部分内容为示例数据，仅用于展示页面结构</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('siteSearch');
+  var btn = document.getElementById('searchBtn');
+  var grid = document.getElementById('entryGrid');
+  var noResult = document.getElementById('noResult');
+  if(!input || !grid) return;
+
+  function runSearch(){
+    var q = (input.value || '').trim().toLowerCase();
+    var cards = grid.querySelectorAll('.card');
+    var visible = 0;
+    cards.forEach(function(card){
+      if(!q){
+        card.classList.remove('hidden');
+        visible++;
+        return;
+      }
+      var text = (card.getAttribute('data-search') || '') + ' ' + card.textContent;
+      if(text.toLowerCase().indexOf(q) !== -1){
+        card.classList.remove('hidden');
+        visible++;
+      }else{
+        card.classList.add('hidden');
+      }
+    });
+    if(noResult){
+      if(visible === 0 && q){ noResult.classList.add('show'); }
+      else{ noResult.classList.remove('show'); }
+    }
+  }
+
+  btn && btn.addEventListener('click', runSearch);
+  input.addEventListener('input', runSearch);
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+  });
+})();
+</script>
+</body>
+              </html>
