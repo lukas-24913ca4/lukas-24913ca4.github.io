@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>91挑桃 - 鲜桃品种与挑选指南</title>
+  <meta name="description" content="91挑桃是聚焦鲜桃品种、产地与挑选方法的垂直内容站。汇集水蜜桃、油桃、黄桃等品种图鉴，糖度与成熟度判断技巧，时令购买攻略与用户实测评价，适合水果爱好者和家庭采购者参考。">
+  <meta name="keywords" content="水蜜桃品种,油桃挑选,黄桃产地,糖度判断,时令鲜桃">
+  <style>
+    /* ---------- 设计变量 ---------- */
+    :root {
+      --peach-bg: #fff9f5;
+      --peach-surface: #ffffff;
+      --peach-primary: #c73e2e;
+      --peach-primary-soft: #fbe9e5;
+      --peach-secondary: #f3a683;
+      --peach-accent: #e58e6b;
+      --peach-text: #2e1e14;
+      --peach-text-soft: #6b4e3a;
+      --peach-muted: #9b7b68;
+      --peach-border: #f0dfd6;
+      --peach-shadow: 0 8px 24px rgba(180, 100, 70, 0.08), 0 2px 6px rgba(180, 100, 70, 0.04);
+      --peach-radius: 16px;
+      --peach-radius-sm: 10px;
+      --peach-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      --sticky-offset: 110px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--sticky-offset);
+    }
+
+    body {
+      font-family: var(--peach-font);
+      background-color: var(--peach-bg);
+      color: var(--peach-text);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- 吸顶公告条 + 页头 ---------- */
+    .sticky-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--peach-bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .announcement-bar {
+      background: var(--peach-primary);
+      color: #fff;
+      text-align: center;
+      font-size: 0.875rem;
+      padding: 8px 16px;
+      letter-spacing: 0.3px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .announcement-bar span {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .site-header {
+      background: rgba(255, 249, 245, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--peach-border);
+      padding: 12px 24px;
+    }
+
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-icon svg {
+      display: block;
+      width: 38px;
+      height: 38px;
+    }
+
+    .brand-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--peach-primary);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: var(--peach-text-soft);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 30px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      background: var(--peach-primary-soft);
+      color: var(--peach-primary);
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+
+    .header-quick {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .header-quick a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--peach-primary);
+      background: var(--peach-primary-soft);
+      padding: 6px 14px;
+      border-radius: 30px;
+      transition: background 0.2s;
+    }
+
+    .header-quick a:hover {
+      background: #f7d5cc;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--peach-border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--peach-text);
+    }
+
+    /* ---------- 容器与布局 ---------- */
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- 首屏 ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 48px 0 32px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: var(--peach-text);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--peach-text-soft);
+      margin-bottom: 24px;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--peach-primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary:hover {
+      background: #a83224;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--peach-text);
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid var(--peach-border);
+      transition: background 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--peach-primary-soft);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      filter: drop-shadow(0 12px 24px rgba(199, 62, 46, 0.12));
+    }
+
+    /* ---------- 三栏门户 ---------- */
+    .portal-layout {
+      display: grid;
+      grid-template-columns: 180px 1fr 260px;
+      gap: 28px;
+      align-items: start;
+      padding: 24px 0 48px;
+    }
+
+    /* 左侧频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      background: var(--peach-surface);
+      border-radius: var(--peach-radius);
+      padding: 20px 12px;
+      box-shadow: var(--peach-shadow);
+      border: 1px solid var(--peach-border);
+    }
+
+    .channel-sidebar h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--peach-muted);
+      margin-bottom: 14px;
+      padding-left: 8px;
+    }
+
+    .channel-sidebar ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .channel-sidebar a {
+      display: block;
+      padding: 7px 10px;
+      text-decoration: none;
+      color: var(--peach-text-soft);
+      font-size: 0.9rem;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+
+    .channel-sidebar a:hover,
+    .channel-sidebar a:focus-visible {
+      background: var(--peach-primary-soft);
+      color: var(--peach-primary);
+    }
+
+    /* 主内容区 */
+    .main-content {
+      min-width: 0;
+    }
+
+    /* 右侧辅助栏 */
+    .right-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-card {
+      background: var(--peach-surface);
+      border-radius: var(--peach-radius);
+      padding: 18px 16px;
+      box-shadow: var(--peach-shadow);
+      border: 1px solid var(--peach-border);
+    }
+
+    .sidebar-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--peach-text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sidebar-card h3 svg {
+      width: 18px;
+      height: 18px;
+      color: var(--peach-primary);
+    }
+
+    /* 热榜列表 */
+    .hot-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hot-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.88rem;
+    }
+
+    .hot-list .rank {
+      font-weight: 700;
+      color: var(--peach-primary);
+      min-width: 20px;
+    }
+
+    .hot-list a {
+      text-decoration: none;
+      color: var(--peach-text);
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+
+    .hot-list a:hover {
+      color: var(--peach-primary);
+    }
+
+    .hot-list .meta {
+      font-size: 0.75rem;
+      color: var(--peach-muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* 更新流 */
+    .update-stream {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .update-stream li {
+      font-size: 0.85rem;
+      border-bottom: 1px dashed var(--peach-border);
+      padding-bottom: 10px;
+    }
+
+    .update-stream li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .update-stream .update-title {
+      font-weight: 600;
+      color: var(--peach-text);
+    }
+
+    .update-stream .update-time {
+      font-size: 0.7rem;
+      color: var(--peach-muted);
+      display: block;
+      margin-top: 3px;
+    }
+
+    /* ---------- 板块通用 ---------- */
+    .section-block {
+      background: var(--peach-surface);
+      border-radius: var(--peach-radius);
+      padding: 24px 22px;
+      margin-bottom: 28px;
+      box-shadow: var(--peach-shadow);
+      border: 1px solid var(--peach-border);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--peach-text);
+      letter-spacing: -0.3px;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--peach-muted);
+      margin-bottom: 18px;
+    }
+
+    /* 概览 */
+    .overview-text {
+      font-size: 0.98rem;
+      color: var(--peach-text-soft);
+      line-height: 1.8;
+    }
+
+    .overview-text p {
+      margin-bottom: 12px;
+    }
+
+    .overview-text strong {
+      color: var(--peach-primary);
+      font-weight: 600;
+    }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .peach-card {
+      background: var(--peach-bg);
+      border-radius: var(--peach-radius-sm);
+      padding: 16px;
+      border: 1px solid var(--peach-border);
+      transition: transform 0.15s, box-shadow 0.15s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .peach-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(199, 62, 46, 0.08);
+    }
+
+    .card-tag-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: var(--peach-primary-soft);
+      color: var(--peach-primary);
+      font-weight: 500;
+    }
+
+    .tag.secondary {
+      background: #fef3e2;
+      color: #b16a3a;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--peach-text);
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 0.8rem;
+      color: var(--peach-text-soft);
+      line-height: 1.6;
+      margin-bottom: 10px;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--peach-muted);
+      border-top: 1px solid var(--peach-border);
+      padding-top: 8px;
+      margin-top: auto;
+    }
+
+    /* 最新动态列表 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--peach-border);
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .news-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--peach-primary);
+      min-width: 70px;
+      background: var(--peach-primary-soft);
+      padding: 3px 8px;
+      border-radius: 20px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .news-content {
+      flex: 1;
+    }
+
+    .news-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin-bottom: 2px;
+    }
+
+    .news-desc {
+      font-size: 0.82rem;
+      color: var(--peach-text-soft);
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .category-pill {
+      background: var(--peach-bg);
+      border: 1px solid var(--peach-border);
+      border-radius: 40px;
+      padding: 8px 14px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--peach-text-soft);
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+
+    .category-pill:hover {
+      background: var(--peach-primary-soft);
+      border-color: var(--peach-primary);
+      color: var(--peach-primary);
+    }
+
+    /* 深度解析正文 */
+    .deep-dive h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 20px 0 8px;
+      color: var(--peach-text);
+    }
+
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .deep-dive p {
+      font-size: 0.95rem;
+      color: var(--peach-text-soft);
+      margin-bottom: 12px;
+      line-height: 1.75;
+    }
+
+    .deep-dive ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    .deep-dive li {
+      font-size: 0.92rem;
+      color: var(--peach-text-soft);
+      margin-bottom: 6px;
+      line-height: 1.65;
+    }
+
+    /* 体验指南步骤 */
+    .guide-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .guide-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      background: var(--peach-primary);
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .step-content p {
+      font-size: 0.9rem;
+      color: var(--peach-text-soft);
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    details {
+      background: var(--peach-bg);
+      border-radius: var(--peach-radius-sm);
+      padding: 12px 16px;
+      border: 1px solid var(--peach-border);
+      cursor: pointer;
+    }
+
+    details summary {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--peach-text);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary::after {
+      content: "+";
+      font-size: 1.2rem;
+      color: var(--peach-primary);
+      font-weight: 400;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--peach-text-soft);
+      line-height: 1.7;
+      padding-top: 8px;
+      border-top: 1px dashed var(--peach-border);
+    }
+
+    /* 用户评论 */
+    .comment-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .comment-item {
+      background: var(--peach-bg);
+      border-radius: var(--peach-radius-sm);
+      padding: 14px;
+      border: 1px solid var(--peach-border);
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .comment-user {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--peach-text);
+    }
+
+    .comment-time {
+      font-size: 0.7rem;
+      color: var(--peach-muted);
+    }
+
+    .comment-text {
+      font-size: 0.85rem;
+      color: var(--peach-text-soft);
+      line-height: 1.6;
+    }
+
+    /* 相关资讯 */
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border-bottom: 1px dashed var(--peach-border);
+      padding-bottom: 12px;
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--peach-primary);
+      min-width: 70px;
+      background: var(--peach-primary-soft);
+      padding: 3px 8px;
+      border-radius: 20px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .info-content h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .info-content p {
+      font-size: 0.82rem;
+      color: var(--peach-text-soft);
+    }
+
+    /* 相关推荐标签 */
+    .related-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .related-tag {
+      background: var(--peach-bg);
+      border: 1px solid var(--peach-border);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      color: var(--peach-text-soft);
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+
+    .related-tag:hover {
+      background: var(--peach-primary-soft);
+      border-color: var(--peach-primary);
+      color: var(--peach-primary);
+    }
+
+    /* 补充板块：可信度分层 */
+    .trust-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .trust-card {
+      background: var(--peach-bg);
+      border-radius: var(--peach-radius-sm);
+      padding: 14px;
+      border: 1px solid var(--peach-border);
+      text-align: center;
+    }
+
+    .trust-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .trust-card p {
+      font-size: 0.8rem;
+      color: var(--peach-text-soft);
+    }
+
+    .trust-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: var(--peach-primary-soft);
+      color: var(--peach-primary);
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-top: 6px;
+    }
+
+    /* 页尾 */
+    .site-footer {
+      background: #2e1e14;
+      color: #e8d9d2;
+      padding: 40px 24px 20px;
+      margin-top: 20px;
+    }
+
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    .footer-brand .brand-text-footer {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f3a683;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: #b8a69c;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #f3a683;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-col a {
+      color: #c9b6ac;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.15s;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      max-width: 1360px;
+      margin: 24px auto 0;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.75rem;
+      color: #8a7569;
+      text-align: center;
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 1024px) {
+      .portal-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .channel-sidebar {
+        display: none;
+      }
+
+      .right-sidebar {
+        position: static;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 32px 0 24px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+
+      .hero-visual svg {
+        max-width: 300px;
+      }
+
+      .main-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .header-quick a {
+        display: none;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .portal-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-desc {
+        font-size: 0.95rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .section-block {
+        padding: 18px 14px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comment-list {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .announcement-bar {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+      }
+
+      .sticky-wrap {
+        position: sticky;
+        top: 0;
+      }
+
+      .site-header {
+        padding: 10px 16px;
+      }
+
+      .brand-text {
+        font-size: 1.4rem;
+      }
+
+      .brand-icon svg {
+        width: 30px;
+        height: 30px;
+      }
+
+      :root {
+        --sticky-offset: 100px;
+      }
+    }
+
+    /* 焦点可见 */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--peach-primary);
+      outline-offset: 2px;
+    }
+
+    /* 图片通用 */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .card-thumb {
+      width: 100%;
+      height: 120px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <!-- 吸顶公告 + 页头 -->
+  <div class="sticky-wrap">
+    <div class="announcement-bar" role="status">
+      <span>新</span> 本周新增 8 个水蜜桃产地档案 · 11 月 6 日更新「晚湖景」糖度实测
+    </div>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-area">
+          <div class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="28" r="16" fill="#F3A683" opacity="0.25"/>
+              <circle cx="24" cy="28" r="14" fill="#E58E6B" opacity="0.35"/>
+              <path d="M24 14C24 14 20 6 14 8C18 12 20 15 20 18" stroke="#C73E2E" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M24 14C24 14 28 6 34 8C30 12 28 15 28 18" stroke="#C73E2E" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <circle cx="24" cy="28" r="12" fill="#C73E2E" opacity="0.9"/>
+              <path d="M18 26C18 26 20 22 24 22C28 22 30 26 30 26" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <circle cx="20" cy="30" r="1.5" fill="#fff" opacity="0.6"/>
+              <circle cx="28" cy="30" r="1.5" fill="#fff" opacity="0.6"/>
+            </svg>
+          </div>
+          <span class="brand-text">91挑桃</span>
+        </div>
+        <nav class="main-nav" aria-label="主题导航">
+          <a href="/#variety">品种图鉴</a>
+          <a href="/#select">挑选技巧</a>
+          <a href="/#update">最新动态</a>
+          <a href="/#category">分类入口</a>
+          <a href="/#deep">深度解析</a>
+          <a href="/#guide">体验指南</a>
+          <a href="/#faq">常见问答</a>
+        </nav>
+        <div class="header-quick">
+          <a href="/#select">糖度判断</a>
+          <a href="/#update">时令日历</a>
+        </div>
+        <button class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false">☰</button>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- 首屏 -->
+    <section class="container hero" aria-label="主题首屏">
+      <div class="hero-content">
+        <h1>91挑桃</h1>
+        <p class="hero-desc">
+          这里汇聚水蜜桃、油桃、黄桃、蟠桃等鲜桃品种的产地档案、糖度实测、成熟周期与挑选方法。无论你是想找某个产区的当季好桃，还是想学会看绒毛、闻香气、辨底色，都能找到具体可查的条目与经验。
+        </p>
+        <div class="hero-actions">
+          <a href="/#variety" class="btn-primary">浏览品种图鉴 →</a>
+          <a href="/#select" class="btn-outline">学习挑选方法</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="200" cy="300" rx="160" ry="20" fill="#F3A683" opacity="0.15"/>
+          <circle cx="150" cy="160" r="72" fill="#FBE9E5" stroke="#F3A683" stroke-width="1.5"/>
+          <circle cx="150" cy="160" r="58" fill="#E58E6B" opacity="0.35"/>
+          <circle cx="150" cy="160" r="42" fill="#C73E2E" opacity="0.8"/>
+          <path d="M150 102C150 102 142 84 126 88C138 96 142 102 144 108" stroke="#C73E2E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M150 102C150 102 158 84 174 88C162 96 158 102 156 108" stroke="#C73E2E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <circle cx="132" cy="150" r="4" fill="#fff" opacity="0.5"/>
+          <circle cx="168" cy="150" r="4" fill="#fff" opacity="0.5"/>
+          <path d="M136 168C136 168 142 178 150 178C158 178 164 168 164 168" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7"/>
+          <circle cx="280" cy="200" r="50" fill="#FBE9E5" stroke="#F3A683" stroke-width="1.5"/>
+          <circle cx="280" cy="200" r="38" fill="#E58E6B" opacity="0.4"/>
+          <circle cx="280" cy="200" r="28" fill="#C73E2E" opacity="0.75"/>
+          <path d="M280 160C280 160 274 148 262 150C270 156 274 160 276 164" stroke="#C73E2E" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <circle cx="268" cy="194" r="3" fill="#fff" opacity="0.5"/>
+          <circle cx="292" cy="194" r="3" fill="#fff" opacity="0.5"/>
+          <circle cx="320" cy="110" r="4" fill="#F3A683" opacity="0.6"/>
+          <circle cx="90" cy="90" r="6" fill="#F3A683" opacity="0.3"/>
+          <circle cx="340" cy="260" r="5" fill="#F3A683" opacity="0.4"/>
+          <path d="M60 240 Q80 220 100 240" stroke="#F3A683" stroke-width="1.5" fill="none" opacity="0.5"/>
+          <path d="M310 80 Q330 70 350 80" stroke="#F3A683" stroke-width="1.5" fill="none" opacity="0.5"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 三栏门户布局 -->
+    <div class="container portal-layout">
+      <!-- 左侧频道 -->
+      <aside class="channel-sidebar" aria-label="频道索引">
+        <h3>频道导航</h3>
+        <ul>
+          <li><a href="/#variety">水蜜桃品种</a></li>
+          <li><a href="/#variety">油桃品种</a></li>
+          <li><a href="/#variety">黄桃品种</a></li>
+          <li><a href="/#variety">蟠桃品种</a></li>
+          <li><a href="/#select">糖度判断</a></li>
+          <li><a href="/#select">成熟度识别</a></li>
+          <li><a href="/#update">产地动态</a></li>
+          <li><a href="/#category">时令分类</a></li>
+          <li><a href="/#deep">品种对比</a></li>
+          <li><a href="/#guide">购买路径</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#comments">用户实测</a></li>
+        </ul>
+      </aside>
+
+      <!-- 主内容 -->
+      <div class="main-content">
+        <!-- 主题领域概览 -->
+        <section class="section-block" id="overview">
+          <h2 class="section-title">鲜桃领域概览</h2>
+          <div class="overview-text">
+            <p>
+              鲜桃是一个按果形、表皮绒毛、果肉颜色和成熟期划分的大家族。按表皮特征可分为<strong>毛桃</strong>与<strong>油桃</strong>两大类；按果肉颜色又分白肉、黄肉和红肉品种。水蜜桃以软溶质、高汁水著称，代表品种有阳山水蜜桃、奉化玉露、晚湖景；油桃表皮光滑无毛，口感脆甜，常见中油4号、中油8号；黄桃多用于鲜食与加工，锦绣黄桃、黄金蜜系列是代表性品种；蟠桃果形扁平，风味浓郁，早露蟠桃、瑞蟠系列在市场上可查。
+            </p>
+            <p>
+              产地与成熟期直接决定风味。江苏无锡阳山、浙江奉化、上海南汇、山东蒙阴、河北深州、甘肃秦安等地均有地理标志或主栽品种。早熟品种从5月下旬开始上市，中熟品种集中在7月，晚熟品种可延续到9月。挑选时通常关注<strong>果形对称度、缝合线深浅、绒毛完整度、香气浓度和底色转白程度</strong>，糖度只是其中一项参考。
+            </p>
+          </div>
+        </section>
+
+        <!-- 精选内容推荐 -->
+        <section class="section-block" id="variety">
+          <h2 class="section-title">精选品种图鉴</h2>
+          <p class="section-sub">按品种、产地和风味特征整理的条目，每张卡片对应一个可查品种</p>
+          <div class="card-grid">
+            <div class="peach-card">
+              <div class="card-tag-row"><span class="tag">水蜜桃</span><span class="tag secondary">软溶质</span></div>
+              <img class="card-thumb" src="https://picsum.photos/seed/tao-yangshan01/400/300" width="400" height="300" loading="lazy" alt="阳山水蜜桃果实特写">
+              <h3 class="card-title">阳山水蜜桃·白凤</h3>
+              <p class="card-desc">无锡阳山主栽品种，果形圆整，缝合线浅。成熟后皮易剥离，汁水丰盈，糖度通常14-16度。</p>
+              <div class="card-meta"><span>糖度 14-16°</span><span>7月中旬</span></div>
+            </div>
+            <div class="peach-card">
+              <div class="card-tag-row"><span class="tag">油桃</span><span class="tag secondary">脆甜</span></div>
+              <img class="card-thumb" src="https://picsum.photos/seed/tao-youtao02/400/300" width="400" height="300" loading="lazy" alt="中油8号油桃果实">
+              <h3 class="card-title">中油8号</h3>
+              <p class="card-desc">郑州果树所选育的黄肉油桃，果面全红无毛，果肉硬脆。耐储运，适合喜欢脆口感的消费者。</p>
+              <div class="card-meta"><span>糖度 12-14°</span><span>6月下旬</span></div>
+            </div>
+            <div class="peach-card">
+              <div class="card-tag-row"><span class="tag">黄桃</span><span class="tag secondary">鲜食加工</span></div>
+              <img class="card-thumb" src="https://picsum.photos/seed/tao-huangtao03/400/300" width="400" height="300" loading="lazy" alt="锦绣黄桃果实">
+              <h3 class="card-title">锦绣黄桃</h3>
+              <p class="card-desc">上海农科院选育的晚熟黄桃，果肉金黄，香气浓郁。鲜食与制罐兼用，8月中下旬成熟。</p>
+              <div class="card-meta"><span>糖度 13-15°</span><span>8月中旬</span></div>
+            </div>
+            <div class="peach-card">
+              <div class="card-tag-row"><span class="tag">蟠桃</span><span class="tag secondary">扁果</span></div>
+              <img class="card-thumb" src="https://picsum.photos/seed/tao-pantao04/400/300" width="400" height="300" loading="lazy" alt="早露蟠桃果实">
+              <h3 class="card-title">早露蟠桃</h3>
+              <p class="card-desc">果形扁平，核小肉厚。成熟后底色乳白，阳面有红晕，风味浓甜，是蟠桃中较早熟的品种。</p>
+              <div class="card-meta"><span>糖度 13-15°</span><span>6月中旬</span></div>
+            </div>
+            <div class="peach-card">
+              <div class="card-tag-row"><span class="tag">水蜜桃</span><span class="tag secondary">晚熟</span></div>
+              <img class="card-thumb" src="https://picsum.photos/seed/tao-wanhujing05/400/300" width="400" height="300" loading="lazy" alt="晚湖景水蜜桃">
+              <h3 class="card-title">晚湖景</h3>
+              <p class="card-desc">阳山水蜜桃晚熟代表，8月上旬成熟。果皮乳白带红晕，肉质细软，汁液极多，甜度高酸度低。</p>
+              <div class="card-meta"><span>糖度 15-17°</span><span>8月上旬</span></div>
+            </div>
+            <div class="peach-card">
+              <div class="card-tag-row"><span class="tag">油桃</span><span class="tag secondary">白肉</span></div>
+              <img class="card-thumb" src="https://picsum.photos/seed/tao-baiyou06/400/300" width="400" height="300" loading="lazy" alt="白玉油桃果实">
+              <h3 class="card-title">白玉油桃</h3>
+              <p class="card-desc">白肉油桃品种，果面光滑无毛，果肉白色，口感脆甜。适合对桃毛过敏的人群食用。</p>
+              <div class="card-meta"><span>糖度 12-14°</span><span>7月上旬</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 最新更新 / 动态 -->
+        <section class="section-block" id="update">
+          <h2 class="section-title">最新动态</h2>
+          <p class="section-sub">产地、品种与市场信息更新，日期截至 2026 年 11 月 8 日</p>
+          <div class="news-list">
+            <div class="news-item">
+              <span class="news-date">11月8日</span>
+              <div class="news-content">
+                <div class="news-title">「晚湖景」糖度实测数据更新</div>
+                <div class="news-desc">阳山产区晚湖景本周实测平均糖度15.8°，较上周上升0.4度，酸度0.28%</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">11月6日</span>
+              <div class="news-content">
+                <div class="news-title">奉化玉露水蜜桃收尾</div>
+                <div class="news-desc">奉化产区玉露品种本周结束采摘，冷库货源可供应至11月下旬</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">11月3日</span>
+              <div class="news-content">
+                <div class="news-title">蒙阴蜜桃冬季管护启动</div>
+                <div class="news-desc">山东蒙阴产区进入秋施基肥阶段，2027年早熟品种预计5月20日前后上市</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">10月28日</span>
+              <div class="news-content">
+                <div class="news-title">黄桃罐头原料收购价公布</div>
+                <div class="news-desc">锦绣黄桃加工果收购价同比上涨6%，鲜食果价格保持稳定</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">10月22日</span>
+              <div class="news-content">
+                <div class="news-title">油桃新品种「中油金冠」通过审定</div>
+                <div class="news-desc">郑州果树所新选育黄肉油桃品种，果形圆整，糖度可达15度，耐储性提升</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">10月15日</span>
+              <div class="news-content">
+                <div class="news-title">深州蜜桃地理标志使用规范更新</div>
+                <div class="news-desc">河北深州发布蜜桃地标使用新规，明确糖度下限13度、果形对称度要求</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">10月9日</span>
+              <div class="news-content">
+                <div class="news-title">南汇水蜜桃2026产季报告发布</div>
+                <div class="news-desc">报告显示南汇主栽新凤蜜露平均糖度14.2°，软溶质比例较上年提升</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 分类入口 -->
+        <section class="section-block" id="category">
+          <h2 class="section-title">分类入口</h2>
+          <p class="section-sub">按品种类型、成熟期和用途快速定位</p>
+          <div class="category-grid">
+            <a href="/#variety" class="category-pill">水蜜桃</a>
+            <a href="/#variety" class="category-pill">油桃</a>
+            <a href="/#variety" class="category-pill">黄桃</a>
+            <a href="/#variety" class="category-pill">蟠桃</a>
+            <a href="/#select" class="category-pill">早熟品种</a>
+            <a href="/#select" class="category-pill">晚熟品种</a>
+            <a href="/#deep" class="category-pill">白肉 vs 黄肉</a>
+            <a href="/#deep" class="category-pill">软溶质 vs 硬脆</a>
+          </div>
+        </section>
+
+        <!-- 深度解析正文 -->
+        <section class="section-block deep-dive" id="deep">
+          <h2 class="section-title">深度解析：品种差异与评判维度</h2>
+          <h3>水蜜桃与油桃的核心区别</h3>
+          <p>
+            水蜜桃和油桃最直观的差异在表皮：水蜜桃表面覆盖细密绒毛，油桃则光滑无毛。这层绒毛不仅影响口感偏好，还与储运方式有关——绒毛在运输中容易擦伤脱落，因此水蜜桃多采用单果网套加隔板包装，油桃则可以散装堆叠。从果肉质地看，水蜜桃多为软溶质，成熟后入口即化，汁水丰富；油桃以硬脆为主，果肉紧实，耐咀嚼。糖度方面两者并不存在天然高低，阳山晚湖景水蜜桃糖度可达15-17度，而中油8号油桃糖度通常在12-14度，但油桃的酸度往往略高，形成更明显的酸甜层次。
+          </p>
+          <h3>白肉桃与黄肉桃的风味走向</h3>
+          <p>
+            白肉桃果肉乳白或带红丝，香气以花香和蜜香为主，甜度较高而酸度低，适合鲜食。黄肉桃果肉金黄，类胡萝卜素含量更高，香气偏果香和坚果香，酸度通常高于白肉桃，因此在加工中更常被选用——黄桃罐头的经典风味正是来自这种酸甜平衡。鲜食黄桃中，锦绣黄桃和黄金蜜系列是代表性品种，成熟后酸度会明显下降，糖酸比趋于适口。
+          </p>
+          <h3>挑选时的五个判断维度</h3>
+          <ul>
+            <li><strong>果形对称度：</strong>正常发育的桃子两侧相对匀称，缝合线不过深。畸形果往往是因为花期授粉不良或营养分配不均，风味通常也偏淡。</li>
+            <li><strong>底色转白程度：</strong>水蜜桃成熟过程中绿色底色会逐渐转白或转乳黄，转色面积越大成熟度越高。油桃则观察底色是否由青绿转为浅黄。</li>
+            <li><strong>绒毛完整度：</strong>水蜜桃绒毛完整说明采摘后处理轻柔，表面没有明显擦伤。绒毛大量脱落的果子可能经过多次翻动。</li>
+            <li><strong>香气浓度：</strong>成熟度足够的桃子在果蒂附近能闻到明显甜香。冷藏后的桃子香气会减弱，需要回温后再判断。</li>
+            <li><strong>缝合线深浅：</strong>缝合线是果实两侧交界处的凹沟。过深的缝合线可能意味着果肉发育不够饱满，但也有些品种天然缝合线较深，需要结合品种特性判断。</li>
+          </ul>
+          <h3>晚熟品种的消费时机</h3>
+          <p>
+            晚熟水蜜桃如晚湖景、白丽等品种在8月上旬至中旬成熟，此时日间温差开始拉大，糖分积累更充分。晚熟品种的果肉通常比早熟品种更紧实，耐储性也更好，但软溶质特性依然明显，购买后建议在2-3天内食用。黄桃中的晚熟品种如锦绣在8月中下旬成熟，鲜食窗口较短，错过则多转为加工用途。
+          </p>
+        </section>
+
+        <!-- 体验指南 / 消费路径 -->
+        <section class="section-block" id="guide">
+          <h2 class="section-title">体验指南：从选品种到尝风味</h2>
+          <p class="section-sub">按消费场景梳理的判断顺序，帮助缩小选择范围</p>
+          <div class="guide-steps">
+            <div class="guide-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>先确定口感偏好：软溶质还是硬脆</h4>
+                <p>喜欢入口即化、汁水多的选水蜜桃软溶质品种，如阳山白凤、奉化玉露。偏好脆甜口感的选油桃或硬溶质水蜜桃，如中油8号、脆蜜桃。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>按成熟期锁定品种范围</h4>
+                <p>6月可关注早露蟠桃、中油4号等早熟品种；7月是水蜜桃主力季，白凤、湖景蜜露集中上市；8月晚湖景、锦绣黄桃接档。根据当前月份缩小选择面。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>判断一个品种是否值得尝试</h4>
+                <p>优先看该品种在核心产区的表现——同一品种在不同产区的糖度和风味可能有明显差异。阳山、奉化、南汇等传统产区的水蜜桃品种通常有更稳定的品质记录。再看品种的成熟期是否与你的消费时间匹配。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>类似品种的比较方法</h4>
+                <p>白凤和湖景蜜露同属阳山水蜜桃系列，白凤果形略大、肉质稍紧，湖景蜜露更软、汁水更足。中油8号和白玉油桃都是油桃，前者黄肉、酸甜明显，后者白肉、甜度更纯粹。比较时抓住果肉质地的紧实度、酸度高低和香气类型三个维度。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section-block" id="faq">
+          <h2 class="section-title">常见问答</h2>
+          <div class="faq-list">
+            <details>
+              <summary>水蜜桃一般几月成熟上市？</summary>
+              <p>水蜜桃成熟期从6月中旬持续到8月中旬。早熟品种如雨花露6月中旬上市，中熟品种白凤7月中旬进入盛产期，晚熟品种晚湖景8月上旬成熟。具体时间受产区和当年气候影响，通常阳山产区比南方产区略晚几天。</p>
+            </details>
+            <details>
+              <summary>油桃和水蜜桃哪个糖度更高？</summary>
+              <p>糖度高低不取决于油桃或水蜜桃的分类，而取决于品种和成熟度。优质晚熟水蜜桃糖度可达16-17度，而油桃中也有糖度14-15度的品种。通常水蜜桃的酸度更低，甜感更直接；油桃酸甜比更明显。挑选时以实测糖度和香气为准。</p>
+            </details>
+            <details>
+              <summary>第一次买鲜桃从哪个品种开始比较好？</summary>
+              <p>如果偏好软甜多汁，可以从阳山水蜜桃的白凤或湖景蜜露入手，风味典型、辨识度高。如果喜欢脆爽口感，中油8号油桃或脆蜜桃是稳妥的起点。蟠桃风味浓郁但果形特殊，可作为进阶尝试。</p>
+            </details>
+            <details>
+              <summary>黄桃鲜食和罐装用桃有什么区别？</summary>
+              <p>鲜食黄桃如锦绣黄桃、黄金蜜系列，成熟后糖酸比适口，果肉细腻多汁。罐装加工用黄桃通常选择果肉紧实、耐煮制的品种，如黄露、罐5等，酸度略高、果形均匀。鲜食桃不耐高温灭菌，不适合做罐头。</p>
+            </details>
+            <details>
+              <summary>桃子的绒毛越多说明越新鲜吗？</summary>
+              <p>绒毛完整度主要反映采摘后处理是否轻柔，不能单独作为新鲜度指标。新鲜度更多看果蒂是否青绿、果面有无明显压伤和褶皱。绒毛在运输中容易擦落，只要果皮没有破损，绒毛少量脱落不影响品质。</p>
+            </details>
+            <details>
+              <summary>晚熟桃和早熟桃在口感上有什么不同？</summary>
+              <p>晚熟品种生长周期更长，糖分积累更充分，通常甜度更高、风味更浓。晚熟水蜜桃果肉往往比早熟品种更紧实一些，耐储性也更好。早熟品种水分足、酸度稍高，口感更清爽，但货架期较短。</p>
+            </details>
+          </div>
+        </section>
+
+        <!-- 用户评论 -->
+        <section class="section-block" id="comments">
+          <h2 class="section-title">用户实测评论</h2>
+          <p class="section-sub">来自真实消费场景的反馈，围绕具体品种和挑选体验</p>
+          <div class="comment-list">
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">桃桃爱吃桃</span><span class="comment-time">11月7日</span></div>
+              <p class="comment-text">晚湖景确实比白凤更甜，汁水也多，就是皮太薄了运输容易碰伤。这次收到的有两颗压到了，风味没受影响。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">江南果客</span><span class="comment-time">11月6日</span></div>
+              <p class="comment-text">奉化玉露的香气比阳山白凤更浓一些，甜度差不多。玉露的果肉更细，几乎吃不出纤维感。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">脆桃党老张</span><span class="comment-time">11月5日</span></div>
+              <p class="comment-text">中油8号脆度可以，酸甜比刚好。放了两天稍微软了一点，但没到水蜜桃那种程度，还是脆的。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">蟠桃小院</span><span class="comment-time">11月3日</span></div>
+              <p class="comment-text">早露蟠桃个头不大但味道很集中，核特别小。就是产量少，每年能买到的窗口期很短。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">罐头爱好者</span><span class="comment-time">11月2日</span></div>
+              <p class="comment-text">锦绣黄桃鲜食酸度比想象中明显，放软了之后酸度降下来，甜味就出来了。做罐头的话确实要选酸一点的品种。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">深州老李</span><span class="comment-time">10月30日</span></div>
+              <p class="comment-text">深州蜜桃今年品质不错，糖度普遍在14度以上。地理标志的新规对果形要求更严了，市场上规整的果子多了。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">过敏星人</span><span class="comment-time">10月28日</span></div>
+              <p class="comment-text">吃毛桃嘴周会痒，换白玉油桃就没问题了。油桃里白玉的甜度不算最高，但干净纯粹的甜感很喜欢。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">蒙阴果农小刘</span><span class="comment-time">10月26日</span></div>
+              <p class="comment-text">今年秋施基肥比往年提前了几天，地温还够。早熟品种明年5月20日左右应该能下来。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">水果采购周周</span><span class="comment-time">10月24日</span></div>
+              <p class="comment-text">晚熟水蜜桃的货架期确实比早熟品种长，但软溶质特性决定了它不适合长途多次转运。采购时优先选产地直发。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">阳台种桃人</span><span class="comment-time">10月20日</span></div>
+              <p class="comment-text">自己种了一棵湖景蜜露，果子没商品果大，但完熟后摘下来吃，糖度能到17度以上，比买的强。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">上海吃货阿明</span><span class="comment-time">10月18日</span></div>
+              <p class="comment-text">南汇新凤蜜露今年品质挺好，软溶质比例高了，吃起来更顺滑。就是上市时间短，八月底基本就下市了。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">挑桃新手</span><span class="comment-time">10月15日</span></div>
+              <p class="comment-text">以前只看红不红，后来发现底色转白才是真的熟。绒毛完整的确实更新鲜，但也不能只看这个。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">黄桃控</span><span class="comment-time">10月12日</span></div>
+              <p class="comment-text">黄金蜜三号比锦绣早熟一周左右，酸度更低，不爱吃酸的话可以从黄金蜜入手。</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-header"><span class="comment-user">运输观察员</span><span class="comment-time">10月10日</span></div>
+              <p class="comment-text">水蜜桃用网套加蛋托包装的到手完好率确实高，散装泡沫箱的磕碰率明显更大。买之前最好确认包装方式。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 相关资讯 -->
+        <section class="section-block" id="news">
+          <h2 class="section-title">相关资讯</h2>
+          <div class="info-list">
+            <div class="info-item">
+              <span class="info-date">11月8日</span>
+              <div class="info-content">
+                <h4>阳山晚湖景糖度上升，进入最佳赏味期</h4>
+                <p>本周产区实测糖度15.8°，较上周提高0.4度，酸度降至0.28%，风味窗口预计持续到11月中旬。</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-date">11月5日</span>
+              <div class="info-content">
+                <h4>中油金冠油桃通过审定，糖度上限提升</h4>
+                <p>新选育黄肉油桃品种糖度可达15度，较中油8号提高约2度，耐储性同步提升。</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-date">10月30日</span>
+              <div class="info-content">
+                <h4>深州蜜桃地标新规落地，糖度下限13度</h4>
+                <p>新规明确深州蜜桃的果形对称度和糖度要求，不符合标准的果品将不能使用地理标志。</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-date">10月25日</span>
+              <div class="info-content">
+                <h4>南汇水蜜桃产季报告：软溶质比例提升</h4>
+                <p>2026产季南汇水蜜桃平均糖度14.2°，新凤蜜露软溶质比例较上年提升约8个百分点。</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-date">10月18日</span>
+              <div class="info-content">
+                <h4>锦绣黄桃加工果收购价同比上涨6%</h4>
+                <p>受加工需求增加影响，锦绣黄桃加工果收购价上涨，鲜食果价格保持平稳。</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-date">10月12日</span>
+              <div class="info-content">
+                <h4>蒙阴蜜桃进入秋施基肥期，早熟品种倒计时</h4>
+                <p>山东蒙阴产区启动秋施基肥，地温条件良好，2027年早熟品种预计5月20日前后上市。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 相关推荐 -->
+        <section class="section-block" id="related">
+          <h2 class="section-title">相关推荐</h2>
+          <p class="section-sub">按风味方向延伸的品种与话题</p>
+          <div class="related-tags">
+            <a href="/#variety" class="related-tag">湖景蜜露水蜜桃</a>
+            <a href="/#variety" class="related-tag">白丽水蜜桃</a>
+            <a href="/#variety" class="related-tag">黄金蜜三号</a>
+            <a href="/#variety" class="related-tag">中油4号</a>
+            <a href="/#deep" class="related-tag">硬溶质桃品种</a>
+            <a href="/#deep" class="related-tag">高糖度黄桃</a>
+            <a href="/#guide" class="related-tag">脆桃选购方向</a>
+            <a href="/#guide" class="related-tag">软桃运输包装</a>
+          </div>
+        </section>
+
+        <!-- 补充板块：可信度分层 -->
+        <section class="section-block" id="trust">
+          <h2 class="section-title">品种信息可信度分层</h2>
+          <p class="section-sub">按数据来源和验证程度标注，便于判断参考价值</p>
+          <div class="trust-panel">
+            <div class="trust-card">
+              <h4>产区实测</h4>
+              <p>来自核心产区当季糖度实测与果形记录，数据可追溯</p>
+              <span class="trust-badge">高可信</span>
+            </div>
+            <div class="trust-card">
+              <h4>品种审定信息</h4>
+              <p>来自育种机构公开发布的品种审定公告与特征描述</p>
+              <span class="trust-badge">较高可信</span>
+            </div>
+            <div class="trust-card">
+              <h4>用户消费反馈</h4>
+              <p>来自个人消费体验的归纳，受批次和运输影响存在波动</p>
+              <span class="trust-badge">参考使用</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 右侧辅助栏 -->
+      <aside class="right-sidebar" aria-label="辅助信息">
+        <div class="sidebar-card">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15 9H22L16 14L18 21L12 17L6 21L8 14L2 9H9L12 2Z"/></svg>
+            本周热榜
+          </h3>
+          <ul class="hot-list">
+            <li><span class="rank">1</span><div><a href="/#variety">阳山晚湖景</a><span class="meta">糖度15.8° · 11月8日</span></div></li>
+            <li><span class="rank">2</span><div><a href="/#variety">奉化玉露</a><span class="meta">收尾期 · 11月6日</span></div></li>
+            <li><span class="rank">3</span><div><a href="/#variety">锦绣黄桃</a><span class="meta">加工果涨价 · 10月28日</span></div></li>
+            <li><span class="rank">4</span><div><a href="/#variety">中油8号</a><span class="meta">脆甜推荐 · 11月3日</span></div></li>
+            <li><span class="rank">5</span><div><a href="/#variety">早露蟠桃</a><span class="meta">窗口期短 · 11月5日</span></div></li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6V12L16 14"/></svg>
+            最近更新
+          </h3>
+          <ul class="update-stream">
+            <li><span class="update-title">晚湖景糖度实测数据更新</span><span class="update-time">今天 09:30</span></li>
+            <li><span class="update-title">奉化玉露采摘收尾</span><span class="update-time">昨天 16:20</span></li>
+            <li><span class="update-title">蒙阴秋施基肥启动</span><span class="update-time">11月3日</span></li>
+            <li><span class="update-title">黄桃加工果收购价公布</span><span class="update-time">10月28日</span></li>
+            <li><span class="update-title">中油金冠通过审定</span><span class="update-time">10月22日</span></li>
+            <li><span class="update-title">深州蜜桃地标新规</span><span class="update-time">10月15日</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4C2.9 7 2 7.9 2 9V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V9C22 7.9 21.1 7 20 7Z"/><path d="M16 7V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V7"/></svg>
+            时令提示
+          </h3>
+          <p style="font-size:0.85rem;color:var(--peach-text-soft);line-height:1.6;">11月上旬晚熟水蜜桃接近尾声，冷库货源可供应至11月下旬。鲜食黄桃已过季，加工品仍在售。</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-text-footer">91挑桃</div>
+        <p>聚焦鲜桃品种、产地与挑选方法的垂直内容站。从水蜜桃到油桃，从糖度判断到成熟度识别，提供可查可用的品类参考。</p>
+      </div>
+      <div class="footer-col">
+        <h4>品种图鉴</h4>
+        <ul>
+          <li><a href="/#variety">水蜜桃品种</a></li>
+          <li><a href="/#variety">油桃品种</a></li>
+          <li><a href="/#variety">黄桃品种</a></li>
+          <li><a href="/#variety">蟠桃品种</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>挑选方法</h4>
+        <ul>
+          <li><a href="/#select">糖度判断</a></li>
+          <li><a href="/#select">成熟度识别</a></li>
+          <li><a href="/#deep">品种对比</a></li>
+          <li><a href="/#guide">消费路径</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>内容入口</h4>
+        <ul>
+          <li><a href="/#update">最新动态</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#comments">用户实测</a></li>
+          <li><a href="/#trust">可信度分层</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>部分内容为示例数据，仅用于展示页面结构。 © 2026 91挑桃 · 鲜桃品类参考</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // 移动端菜单切换
+      const menuBtn = document.querySelector('.menu-toggle');
+      const mainNav = document.querySelector('.main-nav');
+      if (menuBtn && mainNav) {
+        menuBtn.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          if (mainNav.style.display === 'flex' || mainNav.style.display === '') {
+            mainNav.style.display = 'none';
+          } else {
+            mainNav.style.display = 'flex';
+            mainNav.style.flexDirection = 'column';
+            mainNav.style.position = 'absolute';
+            mainNav.style.top = '100%';
+            mainNav.style.left = '0';
+            mainNav.style.right = '0';
+            mainNav.style.background = 'var(--peach-bg)';
+            mainNav.style.padding = '16px';
+            mainNav.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
+            mainNav.style.zIndex = '200';
+          }
+        });
+      }
+
+      // 点击导航链接后关闭移动端菜单
+      document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 1024 && mainNav) {
+            mainNav.style.display = 'none';
+            if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+  </html>
