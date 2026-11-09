@@ -1,0 +1,1516 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日大赛免费观赛 - 赛程入口与项目指南</title>
+  <meta name="description" content="每日大赛免费观赛聚合今日免费赛事入口，涵盖电竞、篮球、足球、格斗与棋牌等项目的赛程、规则与看点，适合想找免费观赛渠道的体育爱好者。">
+  <meta name="keywords" content="免费赛事直播,今日赛程表,电竞观赛入口,体育比赛规则,在线观赛平台">
+  <style>
+    :root {
+      --primary: #0A1F44;
+      --primary-light: #1A3A6E;
+      --accent: #E63946;
+      --accent-soft: #FFE5E7;
+      --bg: #F7F8FA;
+      --surface: #FFFFFF;
+      --text: #1E2A3A;
+      --text-secondary: #5A6B7E;
+      --border: #E2E6EC;
+      --radius: 12px;
+      --shadow-sm: 0 1px 4px rgba(10, 31, 68, 0.06);
+      --shadow-md: 0 4px 16px rgba(10, 31, 68, 0.08);
+      --font-sans: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+      --sticky-offset: 108px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--sticky-offset);
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+    /* 吸顶区域 */
+    .sticky-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .announce-bar {
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .announce-bar strong {
+      font-weight: 700;
+    }
+    .announce-bar span {
+      opacity: 0.9;
+    }
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      gap: 32px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+    }
+    .brand-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+    }
+    .main-nav::-webkit-scrollbar {
+      display: none;
+    }
+    .main-nav a {
+      padding: 6px 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      background: var(--bg);
+      color: var(--primary);
+      outline: 2px solid transparent;
+    }
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .btn-outline {
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: transparent;
+      font-size: 13px;
+      color: var(--text);
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .btn-primary {
+      padding: 6px 16px;
+      border: none;
+      border-radius: 20px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--primary-light);
+    }
+    /* 首屏 */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #0D2B5A 55%, #112F60 100%);
+      color: #fff;
+      padding: 56px 24px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-btn-primary {
+      padding: 10px 28px;
+      border-radius: 24px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      transition: opacity 0.2s;
+    }
+    .hero-btn-primary:hover,
+    .hero-btn-primary:focus-visible {
+      opacity: 0.9;
+    }
+    .hero-btn-secondary {
+      padding: 10px 28px;
+      border-radius: 24px;
+      background: transparent;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: border-color 0.2s;
+    }
+    .hero-btn-secondary:hover,
+    .hero-btn-secondary:focus-visible {
+      border-color: #fff;
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-visual svg {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+    }
+    /* 主布局：三栏门户 */
+    .page-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      display: grid;
+      grid-template-columns: 180px 1fr 260px;
+      gap: 28px;
+      align-items: start;
+    }
+    /* 左侧频道索引 */
+    .left-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+    }
+    .sidebar-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 16px 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .sidebar-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      padding: 0 16px 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    .channel-list {
+      list-style: none;
+    }
+    .channel-list a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 14px;
+      color: var(--text);
+      border-left: 3px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .channel-list a:hover,
+    .channel-list a:focus-visible {
+      background: var(--bg);
+      border-left-color: var(--accent);
+    }
+    .channel-list svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      color: var(--text-secondary);
+    }
+    /* 中间主内容 */
+    .main-content {
+      min-width: 0;
+    }
+    .content-section {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+    /* 概览正文 */
+    .overview-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .overview-text p {
+      margin-bottom: 12px;
+    }
+    .overview-text p:last-child {
+      margin-bottom: 0;
+    }
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .event-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+      background: var(--surface);
+    }
+    .event-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: var(--bg);
+    }
+    .card-body {
+      padding: 14px;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: var(--bg);
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+    .tag-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .hot-badge {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    /* 紧凑列表 */
+    .compact-list {
+      list-style: none;
+    }
+    .compact-list li {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .compact-list li:last-child {
+      border-bottom: none;
+    }
+    .list-time {
+      font-size: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      min-width: 80px;
+    }
+    .list-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .list-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .list-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 8px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .category-item:hover {
+      border-color: var(--accent);
+      background: #FFF9FA;
+    }
+    .category-icon {
+      width: 28px;
+      height: 28px;
+      color: var(--primary);
+    }
+    .category-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    /* 深度解析 */
+    .deep-dive h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 20px 0 10px;
+    }
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+    .deep-dive p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .deep-dive ul {
+      margin: 8px 0 16px 20px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .deep-dive li {
+      margin-bottom: 4px;
+    }
+    /* FAQ */
+    .faq-list details {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .faq-list details:last-child {
+      border-bottom: none;
+    }
+    .faq-list summary {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-list summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-list summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-list details[open] summary::after {
+      content: '−';
+    }
+    .faq-answer {
+      padding-top: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    /* 评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .comment-card {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 14px;
+      border: 1px solid var(--border);
+    }
+    .comment-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .comment-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .comment-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    /* 资讯 */
+    .news-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-item:last-child {
+      border-bottom: none;
+    }
+    .news-img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+      background: var(--bg);
+    }
+    .news-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .news-date {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .news-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    /* 右侧辅助栏 */
+    .right-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+    }
+    .right-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .right-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hot-list {
+      list-style: none;
+    }
+    .hot-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .hot-rank {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 12px;
+      min-width: 20px;
+    }
+    .hot-rank.top3 {
+      color: var(--accent);
+    }
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag-cloud a {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 14px;
+      background: var(--bg);
+      font-size: 12px;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+    }
+    .tag-cloud a:hover,
+    .tag-cloud a:focus-visible {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    /* 页尾 */
+    .site-footer {
+      background: var(--primary);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 40px 24px 24px;
+      margin-top: 16px;
+    }
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+    }
+    .footer-brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .footer-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      color: #fff;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 6px;
+    }
+    .footer-col a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.2s;
+    }
+    .footer-col a:hover,
+    .footer-col a:focus-visible {
+      color: #fff;
+    }
+    .footer-bottom {
+      max-width: 1360px;
+      margin: 24px auto 0;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .page-container {
+        grid-template-columns: 1fr 260px;
+      }
+      .left-sidebar {
+        display: none;
+      }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-visual {
+        display: none;
+      }
+      .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 740px) {
+      .page-container {
+        grid-template-columns: 1fr;
+        padding: 20px 16px;
+      }
+      .right-sidebar {
+        position: static;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero {
+        padding: 40px 16px 32px;
+      }
+      .header-inner {
+        padding: 0 16px;
+        gap: 12px;
+      }
+      .brand-text {
+        font-size: 15px;
+      }
+      .main-nav {
+        display: none;
+      }
+      .header-actions .btn-outline {
+        display: none;
+      }
+      .content-section {
+        padding: 20px;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .comment-grid {
+        grid-template-columns: 1fr;
+      }
+      .news-img {
+        width: 80px;
+        height: 60px;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .announce-bar {
+        font-size: 12px;
+        padding: 6px 16px;
+      }
+      :root {
+        --sticky-offset: 98px;
+      }
+    }
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .hero-desc {
+        font-size: 14px;
+      }
+      .hero-btn-primary,
+      .hero-btn-secondary {
+        padding: 8px 20px;
+        font-size: 14px;
+      }
+      .section-title {
+        font-size: 1.2rem;
+      }
+    }
+    /* 焦点可见 */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    /* 可访问性隐藏 */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <!-- 吸顶区域 -->
+  <div class="sticky-wrapper">
+    <div class="announce-bar">
+      <strong>今日更新</strong>
+      <span>2026-11-08 新增 8 场免费赛事入口 · 电竞秋季杯半决赛今晚 19:00 开赛</span>
+    </div>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/#hero" class="brand" aria-label="每日大赛免费观赛首页">
+          <svg class="brand-logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#0A1F44"/>
+            <path d="M10 22L16 8L22 22H10Z" stroke="#E63946" stroke-width="2.4" stroke-linejoin="round"/>
+            <circle cx="16" cy="18" r="2.2" fill="#E63946"/>
+          </svg>
+          <span class="brand-text">每日大赛免费观赛</span>
+        </a>
+        <nav class="main-nav" aria-label="主题导航">
+          <a href="/#overview">赛事概览</a>
+          <a href="/#featured">今日推荐</a>
+          <a href="/#updates">最新赛程</a>
+          <a href="/#categories">项目分类</a>
+          <a href="/#deep-dive">观赛解析</a>
+          <a href="/#guide">体验指南</a>
+          <a href="/#faq">常见问题</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-outline" type="button">登录</button>
+          <button class="btn-primary" type="button">免费订阅</button>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- 首屏 -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>每日大赛免费观赛</h1>
+        <p class="hero-desc">
+          汇集今日所有可免费观看的体育与电竞赛事入口，涵盖篮球、足球、英雄联盟、Dota 2、综合格斗与棋牌项目。每天更新赛程、开赛时间、直播平台与项目规则摘要，帮助你在不付费的前提下找到值得投入时间的比赛。
+        </p>
+        <div class="hero-actions">
+          <a href="/#updates" class="hero-btn-primary">查看今日赛程</a>
+          <a href="/#categories" class="hero-btn-secondary">按项目筛选</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 360 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="30" width="320" height="200" rx="16" fill="#0D2B5A" stroke="#1A3A6E" stroke-width="1.5"/>
+          <rect x="36" y="50" width="288" height="12" rx="4" fill="#1A3A6E"/>
+          <circle cx="48" cy="56" r="4" fill="#E63946"/>
+          <circle cx="62" cy="56" r="4" fill="#4A7A9B"/>
+          <circle cx="76" cy="56" r="4" fill="#4A7A9B"/>
+          <rect x="36" y="76" width="170" height="10" rx="3" fill="#1A3A6E"/>
+          <rect x="36" y="94" width="200" height="10" rx="3" fill="#1A3A6E"/>
+          <rect x="36" y="112" width="150" height="10" rx="3" fill="#1A3A6E"/>
+          <rect x="36" y="140" width="120" height="34" rx="8" fill="#E63946" opacity="0.85"/>
+          <rect x="168" y="140" width="120" height="34" rx="8" fill="#1A3A6E"/>
+          <rect x="36" y="186" width="252" height="8" rx="3" fill="#1A3A6E"/>
+          <rect x="36" y="202" width="180" height="8" rx="3" fill="#1A3A6E"/>
+          <circle cx="310" cy="120" r="24" fill="#E63946" opacity="0.15"/>
+          <circle cx="310" cy="120" r="14" fill="#E63946" opacity="0.25"/>
+          <circle cx="310" cy="120" r="6" fill="#E63946"/>
+          <rect x="270" y="200" width="60" height="20" rx="6" fill="#E63946" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主布局 -->
+  <div class="page-container">
+    <!-- 左侧频道索引 -->
+    <aside class="left-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">全部频道</div>
+        <ul class="channel-list">
+          <li><a href="/#featured">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L10 6H14L11 9L12 14L8 11L4 14L5 9L2 6H6L8 2Z"/></svg>
+            今日精选</a></li>
+          <li><a href="/#updates">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 4V8L10.5 9.5"/></svg>
+            赛程更新</a></li>
+          <li><a href="/#categories">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+            项目分类</a></li>
+          <li><a href="/#deep-dive">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3H13V13H3V3Z"/><path d="M6 6H10"/><path d="M6 9H10"/></svg>
+            深度解析</a></li>
+          <li><a href="/#guide">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L14 5.5V10.5L8 14L2 10.5V5.5L8 2Z"/><path d="M8 8V14"/></svg>
+            体验指南</a></li>
+          <li><a href="/#faq">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10 6C10 7.5 8 8 8 9"/><circle cx="8" cy="12" r="0.8" fill="currentColor"/></svg>
+            常见问题</a></li>
+          <li><a href="/#comments">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3H13V11H9L6 13V11H3V3Z"/></svg>
+            观众评论</a></li>
+          <li><a href="/#news">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M5 6H11"/><path d="M5 9H9"/></svg>
+            相关资讯</a></li>
+          <li><a href="/#ranking">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13V7L8 2L13 7V13H3Z"/><path d="M6 13V9H10V13"/></svg>
+            热门榜单</a></li>
+          <li><a href="/#recommend">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8H6L8 4L10 8H14"/><path d="M8 10V14"/></svg>
+            延伸推荐</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- 中间主内容 -->
+    <main class="main-content">
+      <!-- 1. 主题领域概览 -->
+      <section class="content-section" id="overview">
+        <h2 class="section-title">免费观赛领域概览</h2>
+        <p class="section-subtitle">当前可免费观看的赛事类型与内容方向</p>
+        <div class="overview-text">
+          <p>免费观赛的核心吸引力在于不设付费门槛即可跟进高水平的竞技对抗。目前免费赛事主要集中在几个方向：电竞赛事中的《英雄联盟》次级联赛与《Dota 2》社区锦标赛、传统体育中的大学篮球联赛与部分足球友谊赛、综合格斗中的新人选拔赛，以及棋牌类的线上公开赛。这些赛事通常由平台方或社区组织承办，开放直播信号以积累观众基础。</p>
+          <p>从观赛体验来看，免费赛事与付费版权赛事的主要区别在于制作规模和解说阵容。免费场次往往采用平台官方流或社区解说，画面机位较少，但核心对局信息完整。对于想持续跟进特定项目、建立观赛习惯的观众，免费赛事提供了足够丰富的样本量。以 2026 年秋季为例，每个比赛日平均有 12 到 18 场不同项目的免费直播可供选择，其中电竞占六成以上。</p>
+          <p>值得关注的具体内容方向包括：英雄联盟秋季杯的半决赛与决赛、Dota 2 社区联赛的每周淘汰赛、大学篮球联盟的常规赛收官战、以及综合格斗新人赛的月度选拔。这些赛事的共同特点是赛程固定、信息透明，观众可以提前一天规划观看顺序。</p>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section class="content-section" id="featured">
+        <h2 class="section-title">今日精选免费赛事</h2>
+        <p class="section-subtitle">2026 年 11 月 8 日可观看的具体场次</p>
+        <div class="card-grid">
+          <article class="event-card">
+            <img class="card-img" src="https://picsum.photos/seed/lolcup-semi08/400/300" alt="英雄联盟秋季杯半决赛直播画面" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">英雄联盟秋季杯半决赛</h3>
+              <div class="card-tags">
+                <span class="tag tag-accent">电竞赛事</span>
+                <span class="tag">BO5</span>
+                <span class="tag">今晚 19:00</span>
+              </div>
+              <p class="card-desc">四支次级联赛队伍争夺决赛席位，胜者组对决采用五局三胜制，平台官方流免费开放。</p>
+              <div class="card-meta"><span class="hot-badge">热度 9.2万</span><span>19:00 开赛</span></div>
+            </div>
+          </article>
+          <article class="event-card">
+            <img class="card-img" src="https://picsum.photos/seed/dota2-community08/400/300" alt="Dota 2 社区联赛淘汰赛对阵界面" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">Dota 2 社区联赛八强淘汰赛</h3>
+              <div class="card-tags">
+                <span class="tag tag-accent">电竞赛事</span>
+                <span class="tag">单败淘汰</span>
+                <span class="tag">今晚 21:00</span>
+              </div>
+              <p class="card-desc">面向业余高分段玩家的社区赛事，八强赛采用单败淘汰，胜者进入周末总决赛。</p>
+              <div class="card-meta"><span class="hot-badge">热度 4.7万</span><span>21:00 开赛</span></div>
+            </div>
+          </article>
+          <article class="event-card">
+            <img class="card-img" src="https://picsum.photos/seed/ncaa-basket08/400/300" alt="大学篮球联盟常规赛现场" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">大学篮球联盟常规赛收官战</h3>
+              <div class="card-tags">
+                <span class="tag tag-accent">篮球</span>
+                <span class="tag">常规赛</span>
+                <span class="tag">明早 09:30</span>
+              </div>
+              <p class="card-desc">两支争夺季后赛排位的球队正面交锋，胜负直接影响晋级形势，校园平台免费直播。</p>
+              <div class="card-meta"><span class="hot-badge">热度 3.1万</span><span>09:30 开赛</span></div>
+            </div>
+          </article>
+          <article class="event-card">
+            <img class="card-img" src="https://picsum.photos/seed/mma-rookie08/400/300" alt="综合格斗新人选拔赛擂台" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">综合格斗新人选拔赛 11 月场</h3>
+              <div class="card-tags">
+                <span class="tag tag-accent">格斗</span>
+                <span class="tag">新人赛</span>
+                <span class="tag">明天 15:00</span>
+              </div>
+              <p class="card-desc">六场不同量级的新人对决，胜者获得年度总决赛资格，全程免费直播。</p>
+              <div class="card-meta"><span class="hot-badge">热度 2.8万</span><span>明天 15:00</span></div>
+            </div>
+          </article>
+          <article class="event-card">
+            <img class="card-img" src="https://picsum.photos/seed/chess-open08/400/300" alt="线上国际象棋公开赛对局画面" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">线上国际象棋快棋公开赛</h3>
+              <div class="card-tags">
+                <span class="tag tag-accent">棋牌</span>
+                <span class="tag">快棋</span>
+                <span class="tag">今晚 20:00</span>
+              </div>
+              <p class="card-desc">十位业余高段位棋手进行五轮快棋循环赛，每方 10 分钟加 3 秒，对局全程免费观看。</p>
+              <div class="card-meta"><span class="hot-badge">热度 1.9万</span><span>20:00 开赛</span></div>
+            </div>
+          </article>
+          <article class="event-card">
+            <img class="card-img" src="https://picsum.photos/seed/football-friendly08/400/300" alt="足球友谊赛入场仪式" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">城市足球友谊赛：滨江 vs 城北</h3>
+              <div class="card-tags">
+                <span class="tag tag-accent">足球</span>
+                <span class="tag">友谊赛</span>
+                <span class="tag">11 月 9 日 14:00</span>
+              </div>
+              <p class="card-desc">两支城市业余联赛前列球队的季末交流赛，双方均以进攻打法著称，社区平台免费转播。</p>
+              <div class="card-meta"><span class="hot-badge">热度 1.5万</span><span>明天 14:00</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 / 赛程动态 -->
+      <section class="content-section" id="updates">
+        <h2 class="section-title">最新赛程与开赛动态</h2>
+        <p class="section-subtitle">2026 年 11 月 7 日至 8 日更新</p>
+        <ul class="compact-list">
+          <li>
+            <span class="list-time">今天 09:30</span>
+            <div class="list-content">
+              <div class="list-title">英雄联盟秋季杯半决赛对阵公布</div>
+              <div class="list-summary">上半区由青训队“星火”对“北岸”，下半区“零度”对“逐风”，首场今晚 19:00 开赛。</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">今天 08:15</span>
+            <div class="list-content">
+              <div class="list-title">Dota 2 社区联赛八强名单确定</div>
+              <div class="list-summary">八支队伍通过小组赛晋级，今晚 21:00 起进行单败淘汰赛，直播信号已开放。</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">昨天 21:10</span>
+            <div class="list-content">
+              <div class="list-title">大学篮球联盟常规赛收官战时间调整</div>
+              <div class="list-summary">原定 11 月 9 日 10:30 的比赛提前至 09:30，直播入口已同步更新。</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">昨天 18:40</span>
+            <div class="list-content">
+              <div class="list-title">综合格斗新人赛 11 月场次表发布</div>
+              <div class="list-summary">共六场对决，涵盖羽量级、轻量级与次中量级，明天 15:00 开始第一场。</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">11 月 7 日</span>
+            <div class="list-content">
+              <div class="list-title">线上国际象棋快棋公开赛开放报名</div>
+              <div class="list-summary">报名截止今晚 18:00，比赛 20:00 开始，平台提供免费直播与棋谱回放。</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">11 月 6 日</span>
+            <div class="list-content">
+              <div class="list-title">城市足球友谊赛直播平台确认</div>
+              <div class="list-summary">滨江 vs 城北的友谊赛将在社区平台免费播出，解说为本地足球播客主理人。</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">11 月 5 日</span>
+            <div class="list-content">
+              <div class="list-title">秋季杯半决赛新增选手第一视角直播</div>
+              <div class="list-summary">平台为四强队伍的中单与打野位开通第一视角信号，可免费切换观看。</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">11 月 4 日</span>
+            <div class="list-content">
+              <div class="list-title">Dota 2 社区联赛小组赛全部结束</div>
+              <div class="list-summary">A 组“老手”与 B 组“夜魇”分列小组第一，八强对阵抽签结果已公布。</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="content-section" id="categories">
+        <h2 class="section-title">按项目分类查找免费赛事</h2>
+        <p class="section-subtitle">八个常见免费观赛类别</p>
+        <div class="category-grid">
+          <div class="category-item">
+            <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22H16"/><path d="M12 18V22"/></svg>
+            <span class="category-name">英雄联盟</span>
+          </div>
+          <div class="category-item">
+            <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8V12L15 14"/></svg>
+            <span class="category-name">Dota 2</span>
+          </div>
+          <div class="category-item">
+            <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3V7"/><path d="M12 17V21"/><path d="M3 12H7"/><path d="M17 12H21"/></svg>
+            <span class="category-name">篮球</span>
+          </div>
+          <div class="category-item">
+            <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3C12 3 8 7 8 12C8 17 12 21 12 21"/><path d="M12 3C12 3 16 7 16 12C16 17 12 21 12 21"/><path d="M3 12H21"/></svg>
+            <span class="category-name">足球</span>
+          </div>
+          <div class="category-item">
+            <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4H18V8L12 12L6 8V4Z"/><path d="M6 20H18V16L12 12L6 16V20Z"/></svg>
+            <span class="category-name">综合格斗</span>
+          </div>
+          <div class="category-item">
+            <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 12H16"/><path d="M12 8V16"/></svg>
+            <span class="category-name">国际象棋</span>
+          </div>
+          <div class="category-item">
+            <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="12" cy="16" r="3"/></svg>
+            <span class="category-name">围棋</span>
+          </div>
+          <div class="category-item">
+            <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20L12 4L20 20"/><path d="M7 14H17"/></svg>
+            <span class="category-name">台球</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析正文 -->
+      <section class="content-section deep-dive" id="deep-dive">
+        <h2 class="section-title">免费赛事的类型差异与观赛判断</h2>
+        <p class="section-subtitle">如何在不同项目、不同场次之间做出选择</p>
+        <h3>电竞赛事：次级联赛与社区赛的观看价值</h3>
+        <p>电竞免费场次主要分为两类：官方次级联赛与社区自组织赛事。次级联赛的优势在于赛制规范、数据完整，选手多为青训体系成员，技战术水平接近顶级联赛但容错率更高，观赏性体现在对线细节与团战决策的波动上。社区赛则更强调玩法多样性，常见非主流英雄选择与激进打法，适合想看到不同套路的观众。两者的共同点是直播信号免费开放，区别在于解说专业度与赛程密度。</p>
+        <p>判断一场电竞免费赛事是否值得投入时间，可以看三个维度：参赛队伍的历史交锋记录是否接近、赛制是 BO1 还是 BO5、以及是否涉及晋级名额。BO5 且关系到晋级资格的场次，队伍通常会拿出完整战术储备，比赛质量明显高于无关联谊赛。</p>
+        <h3>传统体育：校园联赛与业余杯赛的节奏特点</h3>
+        <p>篮球与足球的免费直播多来自校园联赛和城市业余杯赛。校园篮球的节奏快、回合数多，但防守强度参差不齐，适合想看到高频攻防转换的观众。业余足球杯赛则更注重身体对抗与定位球战术，比赛节奏偏慢，但局部拼抢激烈。这两类赛事的共同优势是开赛时间固定、场地信息透明，观众可以提前规划观看。</p>
+        <ul>
+          <li>篮球：优先选择常规赛收官阶段与季后赛卡位战，胜负直接关联排名。</li>
+          <li>足球：友谊赛的对抗强度低于杯赛淘汰赛，但阵容轮换更多，能看到不同组合。</li>
+          <li>格斗：新人选拔赛的场次密度高，单场时间短，适合碎片化观看。</li>
+        </ul>
+        <h3>棋牌与智力项目：快棋赛的观看门槛</h3>
+        <p>国际象棋、围棋和台球的免费直播通常采用快棋或短局制，单场时长控制在 30 到 60 分钟。快棋赛的观赏门槛在于规则熟悉程度——了解基本走法和胜负判定就能跟进局势。围棋的线上公开赛多配有 AI 胜率曲线，即使不熟悉复杂定式也能判断优劣。台球则更依赖解说对走位和防守策略的拆解。</p>
+        <p>对于初次接触智力项目免费赛事的观众，建议从快棋赛入手，因为节奏紧凑、结果明确，不需要长时间专注。如果对某一项目产生兴趣，再过渡到慢棋赛或长局制比赛，那时观赛体验会从“看结果”转向“看过程”。</p>
+      </section>
+
+      <!-- 6. 体验指南 / 消费路径 -->
+      <section class="content-section" id="guide">
+        <h2 class="section-title">免费观赛的体验路径建议</h2>
+        <p class="section-subtitle">从入门到形成固定观看习惯的顺序</p>
+        <div class="overview-text">
+          <p>第一次接触每日大赛免费观赛，建议先从一个规则简单、单场时长在 40 分钟以内的项目开始。综合格斗新人赛或国际象棋快棋赛都是不错的起点，前者胜负判定直观，后者有明确的棋谱记录和局面评估。先通过一两场完整观赛建立对项目节奏的感知，再决定是否深入。</p>
+          <p>形成固定观看习惯之后，可以按赛程表的开赛时间规划观看顺序。同一晚上有多场免费赛事时，优先选择涉及晋级名额或排名变化的场次，其次是带有第一视角或多路信号的对局。如果时间有限，选择 BO3 或单场决胜的赛制，避免追看长盘制的循环赛。</p>
+          <p>判断一个免费赛事是否值得持续跟进，可以参考三个信号：赛事是否有稳定的每周更新节奏、社区讨论是否活跃、以及参赛队伍或选手是否有可识别的风格标签。具备这三点的赛事，观看体验会从“看一场算一场”变成“持续追踪一个项目的进展”。</p>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="content-section" id="faq">
+        <h2 class="section-title">免费观赛常见问题</h2>
+        <p class="section-subtitle">关于赛程、项目和观看方式的问答</p>
+        <div class="faq-list">
+          <details>
+            <summary>英雄联盟秋季杯一般多久更新一次赛程？</summary>
+            <div class="faq-answer">秋季杯的赛程按周更新，小组赛阶段每个比赛日两场 BO3，半决赛与决赛安排在周末晚间。2026 年 11 月的半决赛安排在 11 月 8 日与 9 日，决赛在 11 月 14 日。具体对阵和开赛时间会在每个比赛日前一天下午更新。</div>
+          </details>
+          <details>
+            <summary>Dota 2 社区联赛和官方赛事的观看体验有什么区别？</summary>
+            <div class="faq-answer">社区联赛的解说风格更自由，选手常使用非常规英雄和战术，比赛节奏偏快、失误率也更高。官方赛事则赛制严谨、数据分析丰富，但免费开放的场次有限。如果偏好战术多样性和意外性，社区联赛的观看价值更高；如果想研究体系化打法，官方次级联赛更合适。</div>
+          </details>
+          <details>
+            <summary>第一次看综合格斗新人赛，应该从哪个场次开始？</summary>
+            <div class="faq-answer">建议从羽量级或轻量级的对决开始，这两个量级的选手速度更快、比赛节奏紧凑，判定规则也相对直观。新人赛的每场对决通常打三个回合，单场时长在 15 分钟左右，适合作为入门观看的起点。</div>
+          </details>
+          <details>
+            <summary>线上国际象棋快棋赛的评判标准是什么？</summary>
+            <div class="faq-answer">快棋赛通常采用每方 10 分钟加每步 3 秒的时限，胜负由将死、超时或认输决定。循环赛中积分相同则比较直胜关系，再相同则比较胜局数。部分赛事会引入加赛制，用超快棋决出唯一名次。</div>
+          </details>
+          <details>
+            <summary>大学篮球联盟常规赛和季后赛的免费直播有区别吗？</summary>
+            <div class="faq-answer">常规赛的免费直播场次更多，几乎每个比赛日都有覆盖；季后赛则通常只开放部分场次。常规赛的对抗强度低于季后赛，但比赛数量多、时间分散，适合按自己的空闲时间挑选。季后赛的每一场都关系到晋级，球队投入程度更高。</div>
+          </details>
+          <details>
+            <summary>免费观赛的直播信号通常在哪里可以找到？</summary>
+            <div class="faq-answer>免费赛事的直播信号通常由赛事组织方的官方频道、社区合作平台或校园体育平台提供。开赛前 30 分钟会开放入口，部分赛事还提供多路信号切换，包括主直播流和选手第一视角。赛程页面会标注具体的平台名称和开放时间。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="content-section" id="comments">
+        <h2 class="section-title">观众评论</h2>
+        <p class="section-subtitle">关于近期免费赛事的真实反馈（示例）</p>
+        <div class="comment-grid">
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">林</span><span class="comment-name">林间看客</span></div>
+            <div class="comment-text">昨晚的 Dota 2 社区赛第四场翻盘太精彩了，夜魇那边利用肉山团一波打回一万经济差。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">陈</span><span class="comment-name">陈默的默</span></div>
+            <div class="comment-text">大学篮球收官战的时间改到九点半了，差点错过，这个更新挺及时的。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">苏</span><span class="comment-name">苏打水没有气</span></div>
+            <div class="comment-text">国际象棋快棋赛的棋谱回放功能很好用，第二天还能复盘关键局面。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">周</span><span class="comment-name">周末不加班</span></div>
+            <div class="comment-text">综合格斗新人赛的场次密度很高，一个下午看了四场，节奏确实快。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">吴</span><span class="comment-name">吴所谓先森</span></div>
+            <div class="comment-text">英雄联盟半决赛的第一视角信号比主直播流更有意思，能看选手切屏习惯。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">郑</span><span class="comment-name">郑在看台</span></div>
+            <div class="comment-text">足球友谊赛的解说偏聊天向，战术分析不多，但氛围轻松，适合周末下午看。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">黄</span><span class="comment-name">黄焖鸡米饭</span></div>
+            <div class="comment-text">Dota 2 社区赛的选手英雄池确实深，连续两场中单伐木机，打法完全不同。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">许</span><span class="comment-name">许愿一个晴天</span></div>
+            <div class="comment-text">快棋赛的 AI 胜率曲线对新手很友好，不用懂定式也能看出谁占优。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">何</span><span class="comment-name">何不可</span></div>
+            <div class="comment-text">秋季杯半决赛的 BO5 打满五局，最后一局翻盘，免费能看这种质量的对局很值。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">罗</span><span class="comment-name">罗小黑的铲屎官</span></div>
+            <div class="comment-text">台球公开赛的解说拆解走位很细，但比赛节奏偏慢，更适合晚上安静的时候看。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">高</span><span class="comment-name">高冷的面包</span></div>
+            <div class="comment-text">围棋线上赛的直播视角如果能多一个全局棋盘就好了，现在局部特写切得有点碎。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">沈</span><span class="comment-name">沈从文不是文</span></div>
+            <div class="comment-text">新人选拔赛的裁判判罚尺度比较统一，没有太多争议场面，观感流畅。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">韩</span><span class="comment-name">韩梅梅的邻居</span></div>
+            <div class="comment-text">大学篮球的场馆收音效果一般，但比赛本身够激烈，两个加时看得过瘾。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">曹</span><span class="comment-name">曹阿瞒的笔</span></div>
+            <div class="comment-text">足球友谊赛的直播画质比预期好，虽然是社区平台，但码率给得够。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">严</span><span class="comment-name">严于律己</span></div>
+            <div class="comment-text">希望社区联赛能增加赛后数据面板，现在只有比分，想看详细的击杀和经济曲线。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-header"><span class="comment-avatar">彭</span><span class="comment-name">彭于晏本晏</span></div>
+            <div class="comment-text">综合格斗新人赛的选手介绍卡如果能提前放出来就好了，临时看不太了解背景。</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="content-section" id="news">
+        <h2 class="section-title">免费赛事相关资讯</h2>
+        <p class="section-subtitle">近期赛程与项目动态</p>
+        <div>
+          <article class="news-item">
+            <img class="news-img" src="https://picsum.photos/seed/lol-autumn08news/600/400" alt="英雄联盟秋季杯半决赛对阵图" width="600" height="400" loading="lazy">
+            <div class="news-body">
+              <div class="news-date">2026-11-08</div>
+              <div class="news-title">英雄联盟秋季杯半决赛对阵出炉，今晚开打</div>
+              <div class="news-summary">四强队伍抽签结果公布，上半区星火对北岸，下半区零度对逐风，全部采用 BO5 赛制。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-img" src="https://picsum.photos/seed/dota-community-news08/600/400" alt="Dota 2 社区联赛八强名单" width="600" height="400" loading="lazy">
+            <div class="news-body">
+              <div class="news-date">2026-11-07</div>
+              <div class="news-title">Dota 2 社区联赛小组赛收官，八强战队名单确定</div>
+              <div class="news-summary">A 组老手战队与 B 组夜魇战队分列头名，淘汰赛将于今晚 21:00 开始。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-img" src="https://picsum.photos/seed/basketball-news08/600/400" alt="大学篮球联盟常规赛收官战海报" width="600" height="400" loading="lazy">
+            <div class="news-body">
+              <div class="news-date">2026-11-06</div>
+              <div class="news-title">大学篮球联盟收官战提前至 09:30 开赛</div>
+              <div class="news-summary">原定 11 月 9 日 10:30 的比赛因场馆安排调整提前一小时，直播入口已同步更新。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-img" src="https://picsum.photos/seed/mma-news08/600/400" alt="综合格斗新人赛擂台全景" width="600" height="400" loading="lazy">
+            <div class="news-body">
+              <div class="news-date">2026-11-05</div>
+              <div class="news-title">综合格斗新人赛 11 月场次表公布，六场对决确认</div>
+              <div class="news-summary">涵盖羽量级、轻量级与次中量级，首场比赛明天 15:00 开打，全程免费直播。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-img" src="https://picsum.photos/seed/chess-news08/600/400" alt="线上国际象棋快棋赛对局界面" width="600" height="400" loading="lazy">
+            <div class="news-body">
+              <div class="news-date">2026-11-04</div>
+              <div class="news-title">国际象棋快棋公开赛报名截止今晚，十人循环赛制</div>
+              <div class="news-summary">比赛采用每方 10 分钟加 3 秒快棋规则，平台提供免费直播与棋谱回放功能。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-img" src="https://picsum.photos/seed/football-news08/600/400" alt="城市足球友谊赛比赛现场" width="600" height="400" loading="lazy">
+            <div class="news-body">
+              <div class="news-date">2026-11-03</div>
+              <div class="news-title">城市足球友谊赛确定直播平台，滨江对城北 11 月 9 日开球</div>
+              <div class="news-summary">比赛将在社区体育平台免费转播，解说由本地足球播客主理人担任。</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="content-section" id="recommend">
+        <h2 class="section-title">延伸观看方向</h2>
+        <p class="section-subtitle">与免费赛事相关的具体内容索引</p>
+        <div class="tag-cloud">
+          <a href="/#featured">英雄联盟半决赛第一视角</a>
+          <a href="/#featured">Dota 2 社区赛淘汰赛对阵</a>
+          <a href="/#deep-dive">BO5 与 BO3 赛制区别</a>
+          <a href="/#deep-dive">快棋赛规则与时限</a>
+          <a href="/#guide">新人赛量级划分</a>
+          <a href="/#updates">大学篮球常规赛排名</a>
+          <a href="/#deep-dive">业余足球杯赛与友谊赛差异</a>
+          <a href="/#faq">围棋 AI 胜率曲线解读</a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：热门榜单 -->
+      <section class="content-section" id="ranking">
+        <h2 class="section-title">今日免费赛事热度榜单</h2>
+        <p class="section-subtitle">按观看人数与社区讨论量排序（示例）</p>
+        <ul class="compact-list">
+          <li>
+            <span class="list-time">1</span>
+            <div class="list-content">
+              <div class="list-title">英雄联盟秋季杯半决赛 星火 vs 北岸</div>
+              <div class="list-summary">BO5 · 今晚 19:00 · 热度 9.2 万 · 平台官方流</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">2</span>
+            <div class="list-content">
+              <div class="list-title">Dota 2 社区联赛八强淘汰赛 夜魇 vs 老手</div>
+              <div class="list-summary">单败淘汰 · 今晚 21:00 · 热度 4.7 万 · 社区直播</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">3</span>
+            <div class="list-content">
+              <div class="list-title">大学篮球联盟常规赛收官战 东区 vs 西区</div>
+              <div class="list-summary">常规赛 · 明早 09:30 · 热度 3.1 万 · 校园平台</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">4</span>
+            <div class="list-content">
+              <div class="list-title">综合格斗新人选拔赛 羽量级主赛</div>
+              <div class="list-summary">三回合 · 明天 15:00 · 热度 2.8 万 · 免费直播</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">5</span>
+            <div class="list-content">
+              <div class="list-title">线上国际象棋快棋公开赛 第五轮</div>
+              <div class="list-summary">快棋 · 今晚 20:00 · 热度 1.9 万 · 棋谱直播</div>
+            </div>
+          </li>
+          <li>
+            <span class="list-time">6</span>
+            <div class="list-content">
+              <div class="list-title">城市足球友谊赛 滨江 vs 城北</div>
+              <div class="list-summary">友谊赛 · 11 月 9 日 14:00 · 热度 1.5 万 · 社区转播</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="right-sidebar">
+      <div class="right-card">
+        <div class="right-title">今日热榜</div>
+        <ul class="hot-list">
+          <li><span class="hot-rank top3">1</span>英雄联盟秋季杯半决赛</li>
+          <li><span class="hot-rank top3">2</span>Dota 2 社区联赛八强赛</li>
+          <li><span class="hot-rank top3">3</span>大学篮球常规赛收官战</li>
+          <li><span class="hot-rank">4</span>综合格斗新人赛羽量级</li>
+          <li><span class="hot-rank">5</span>国际象棋快棋公开赛</li>
+          <li><span class="hot-rank">6</span>城市足球友谊赛</li>
+        </ul>
+      </div>
+      <div class="right-card">
+        <div class="right-title">热门项目标签</div>
+        <div class="tag-cloud">
+          <a href="/#categories">英雄联盟</a>
+          <a href="/#categories">Dota 2</a>
+          <a href="/#categories">篮球</a>
+          <a href="/#categories">足球</a>
+          <a href="/#categories">综合格斗</a>
+          <a href="/#categories">国际象棋</a>
+          <a href="/#categories">围棋</a>
+          <a href="/#categories">台球</a>
+        </div>
+      </div>
+      <div class="right-card">
+        <div class="right-title">近期开赛提醒</div>
+        <ul class="hot-list">
+          <li><span class="hot-rank">19:00</span>英雄联盟半决赛 星火 vs 北岸</li>
+          <li><span class="hot-rank">20:00</span>国际象棋快棋公开赛第五轮</li>
+          <li><span class="hot-rank">21:00</span>Dota 2 社区联赛八强淘汰赛</li>
+          <li><span class="hot-rank">09:30</span>大学篮球常规赛收官战（明早）</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">每日大赛免费观赛</div>
+        <p class="footer-desc">汇聚每日免费赛事入口、赛程更新与项目规则摘要，帮助观众在零付费条件下跟进高水平竞技对局。</p>
+      </div>
+      <div class="footer-col">
+        <h4>赛事频道</h4>
+        <ul>
+          <li><a href="/#featured">今日精选</a></li>
+          <li><a href="/#updates">赛程更新</a></li>
+          <li><a href="/#categories">项目分类</a></li>
+          <li><a href="/#ranking">热度榜单</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>观赛参考</h4>
+        <ul>
+          <li><a href="/#deep-dive">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">观众评论</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>更多内容</h4>
+        <ul>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#recommend">延伸推荐</a></li>
+          <li><a href="/#overview">领域概览</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>部分内容为示例数据，仅用于展示页面结构。© 2026 每日大赛免费观赛</p>
+    </div>
+  </footer>
+
+  <script>
+    // 轻量交互：为频道链接添加平滑滚动（已通过 CSS scroll-behavior 实现），此处仅处理键盘焦点增强
+    document.addEventListener('DOMContentLoaded', function() {
+      // 为所有 /# 锚点链接增加焦点可见性提示（CSS 已有 :focus-visible）
+      var anchorLinks = document.querySelectorAll('a[href^="/#"]');
+      anchorLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          var href = link.getAttribute('href');
+          if (href && href.startsWith('/#')) {
+            var targetId = href.substring(2);
+            var target = document.getElementById(targetId);
+            if (target) {
+              // 让锚点滚动偏移通过 CSS scroll-padding-top 处理，此处仅确保焦点移到目标
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              // 更新地址栏但不刷新
+              history.pushState(null, '', href);
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+            </html>
